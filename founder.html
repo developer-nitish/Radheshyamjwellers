@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Founder | Radhe Shyam Jewells</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --gold: #D4AF37;
+            --black: #0a0a0a;
+            --dark-grey: #1a1a1a;
+            --white: #ffffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: var(--black); color: var(--white); font-family: 'Poppins', sans-serif; line-height: 1.6; }
+
+        /* Navigation */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            background: rgba(0,0,0,0.95);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .logo { font-family: 'Cinzel', serif; font-size: 1.5rem; color: var(--gold); font-weight: bold; text-decoration: none; }
+        .nav-links { display: flex; list-style: none; gap: 30px; }
+        .nav-links a { color: var(--white); text-decoration: none; transition: 0.3s; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; }
+        .nav-links a:hover { color: var(--gold); }
+
+        /* Founder Hero */
+        .founder-hero {
+            height: 50vh;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1573408301185-9146fe634ad0?q=80&w=1920');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        .hero-text h1 { font-family: 'Cinzel', serif; font-size: 3.5rem; color: var(--gold); margin-bottom: 10px; }
+        .hero-text p { font-size: 1.2rem; letter-spacing: 2px; text-transform: uppercase; }
+
+        /* Founder Details */
+        .founder-details { padding: 80px 10%; display: flex; gap: 60px; align-items: flex-start; }
+        .founder-img-box { flex: 1; position: relative; }
+        .founder-img-box img { width: 100%; border-radius: 8px; border: 1px solid rgba(212, 175, 55, 0.3); position: relative; z-index: 2; }
+        .img-decor { position: absolute; top: -15px; left: -15px; width: 100%; height: 100%; border: 2px solid var(--gold); border-radius: 8px; z-index: 1; }
+
+        .founder-bio { flex: 1.5; }
+        .founder-bio h2 { font-family: 'Cinzel', serif; font-size: 2.5rem; margin-bottom: 20px; color: var(--gold); }
+        .founder-bio p { color: #ccc; margin-bottom: 20px; font-size: 1.1rem; }
+
+        .contact-card { background: #111; padding: 30px; border-radius: 10px; border-left: 5px solid var(--gold); margin-top: 40px; }
+        .contact-card h3 { margin-bottom: 15px; color: var(--gold); }
+        .contact-card p { margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
+        .contact-card i { color: var(--gold); }
+
+        .social-hub { display: flex; gap: 15px; margin-top: 20px; }
+        .social-hub a { width: 45px; height: 45px; border: 1px solid var(--gold); display: flex; align-items: center; justify-content: center; border-radius: 50%; color: var(--gold); text-decoration: none; transition: 0.3s; }
+        .social-hub a:hover { background: var(--gold); color: #000; transform: translateY(-5px); }
+
+        /* Footer */
+        .main-footer { background: #050505; padding: 60px 8% 20px; border-top: 1px solid var(--gold); margin-top: 50px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; }
+        .footer-col h3 { color: var(--gold); margin-bottom: 20px; font-family: 'Cinzel', serif; }
+        .footer-col p, .footer-col li { color: #888; margin-bottom: 10px; list-style: none; }
+        .footer-col a { color: #888; text-decoration: none; transition: 0.3s; }
+        .footer-col a:hover { color: var(--gold); }
+        .dev-name { color: var(--gold) !important; font-weight: bold; display: block; margin: 10px 0; }
+        .footer-bottom { text-align: center; padding-top: 30px; margin-top: 30px; border-top: 1px solid #222; font-size: 0.8rem; color: #555; }
+
+        /* Mobile View */
+        @media (max-width: 900px) {
+            .founder-details { flex-direction: column; text-align: center; padding: 50px 5%; }
+            .hero-text h1 { font-size: 2.5rem; }
+            .social-hub { justify-content: center; }
+            .founder-img-box { max-width: 400px; margin: 0 auto 40px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="index.html" class="logo">RADHE SHYAM JEWELLS</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="founder.html" style="color: var(--gold);">The Founder</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="founder-hero">
+        <div class="hero-text">
+            <p>Crafting Heritage Since Years</p>
+            <h1>Ajay Kumar Verma</h1>
+        </div>
+    </section>
+
+    <section class="founder-details">
+        <div class="founder-img-box">
+            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=800" alt="Ajay Kumar Verma">
+            <div class="img-decor"></div>
+        </div>
+
+        <div class="founder-bio">
+            <h2>The Visionary Behind <br><span>Radhe Shyam Jewells</span></h2>
+            <p><strong>Ajay Kumar Verma</strong> started this journey with a single motto: "Purity is our Tradition." Under his leadership, Radhe Shyam Jewells has grown from a local shop to a symbol of trust and royal elegance in Gaya.</p>
+            <p>He believes that jewelry is not just an ornament but a legacy that families pass down through generations. This philosophy drives our commitment to 22K Hallmarked gold and authentic gemstones.</p>
+
+            <div class="contact-card">
+                <h3>Direct Connect</h3>
+                <p><i class="fas fa-phone"></i> +91 6200 454 206</p>
+                <p><i class="fas fa-envelope"></i> radheshayamjwellery@gmail.com</p>
+                <p><i class="fas fa-map-marker-alt"></i> Sidiya Ghat, Near Kali Mandir, Gaya</p>
+                
+                <div class="social-hub">
+                    <a href="https://www.facebook.com/share/1AQijfLKmA/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://wa.me/916200454206" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="main-footer">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h3>Radhe Shyam Jewells</h3>
+                <p>Pure Gold, Pure Trust. Visit us for the finest collection of antique and bridal jewelry in Gaya.</p>
+            </div>
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="contact.html">Enquiry</a></li>
+                <li><a href="https://www.facebook.com/share/1AQijfLKmA/">Facebook Page</a></li>
+            </div>
+            <div class="footer-col">
+                <h3>Developer</h3>
+                <p>Designed & Developed by</p>
+                <a href="https://www.linkedin.com/in/nitish-kumar" target="_blank" class="dev-name">Nitish Kumar</a>
+                <a href="mailto:radheshayamjwellery@gmail.com">
+                    <img src="https://cdn-icons-png.flaticon.com/512/281/281769.png" width="30" alt="Gmail">
+                </a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Radhe Shyam Jewells | All Rights Reserved</p>
+        </div>
+    </footer>
+
+</body>
+</html>

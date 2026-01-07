@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Radhe Shyam Jewells</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+</head>
+<body class="contact-page">
+
+    <div id="navbar-placeholder"></div>
+
+    <section class="contact-container">
+        <div class="contact-info">
+            <span class="gold-text">Get In Touch</span>
+            <h2>Contact Our Royal Concierge</h2>
+            <p>Radhe Shyam Jewells is committed to providing a luxury experience. Whether you need pricing or have a specific query, we are here to help.</p>
+            
+            <div class="info-item">
+                <p><strong>Address:</strong> 123 Jewelry Lane, Gold Bazaar, India</p>
+                <p><strong>Call:</strong> +91 98765 43210</p>
+            </div>
+        </div>
+
+        <div class="contact-form-box">
+            <form id="contact-form">
+                <div class="input-group">
+                    <input type="text" name="user_name" id="user_name" placeholder="Your Full Name" required>
+                </div>
+                <div class="input-group">
+                    <input type="email" name="user_email" id="user_email" placeholder="Your Email Address" required>
+                </div>
+                <div class="input-group">
+                    <select name="reason" id="reason" required>
+                        <option value="" disabled selected>Select Reason for Contact</option>
+                        <option value="Product Price Information">Product Price Information</option>
+                        <option value="Marriage Package Inquiry">Marriage Package Inquiry</option>
+                        <option value="Gold/Silver Coin Rates">Gold/Silver Coin Rates</option>
+                        <option value="Custom Order Design">Custom Order Design</option>
+                        <option value="General Problem/Feedback">General Problem / Technical Issue</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <textarea name="message" id="message" rows="5" placeholder="Write your message here..." required></textarea>
+                </div>
+                <button type="submit" class="btn-gold" id="submit-btn">Send Enquiry</button>
+            </form>
+            <p id="form-status"></p>
+        </div>
+    </section>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
