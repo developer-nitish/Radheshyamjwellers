@@ -1,44 +1,230 @@
-<footer class="main-footer">
-    <div class="footer-container">
-        <div class="footer-col">
-            <h2 class="gold-text">RADHE SHYAM JEWELLS</h2>
-            <p>Premium Jewellery Shop in Gaya. We specialize in Gold, Silver, and Marriage Packages with 11+ years of trust.</p>
-            <div class="social-links">
-                <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" width="25" alt="Insta"></a>
-                <a href="https://wa.me/916200454206"><img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" width="25" alt="WhatsApp"></a>
+<footer class="rsj-premium-footer">
+    <div class="rsj-lux-shimmer"></div>
+
+    <div class="rsj-footer-bg-glow"></div>
+
+    <div class="rsj-footer-inner">
+        <div class="rsj-footer-grid">
+            
+            <div class="rsj-col rsj-identity">
+                <div class="rsj-logo-wrap">
+                    <h2 class="rsj-brand-name">RADHE SHYAM</h2>
+                    <span class="rsj-brand-sub">JEWELLS</span>
+                </div>
+                <p class="rsj-mission">Since 11+ years, we have been crafting memories with the purest gold. Our legacy is built on trust, purity, and the timeless art of fine jewelry.</p>
+                <div class="rsj-social-lux">
+                    <a href="#" class="rsj-icon-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/916200454206" class="rsj-icon-link" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#" class="rsj-icon-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                </div>
             </div>
-        </div>
 
-        <div class="footer-col">
-            <h3>Quick Links</h3>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="#gold">Gold Collection</a></li>
-                <li><a href="#marriage">Marriage Package</a></li>
-                <li><a href="contact.html">Contact Us</a></li>
-            </ul>
-        </div>
-
-        <div class="footer-col">
-            <h3>Visit Us</h3>
-            <p><strong>Address:</strong> Sidiya Ghat, Near Kali Mandir, Gaya, Bihar</p>
-            <p><strong>Phone:</strong> <a href="tel:+916200454206">+91 6200 454 206</a></p>
-            <p><strong>Email:</strong> <a href="mailto:radheshayamjwellery@gmail.com">radheshayamjwellery@gmail.com</a></p>
-        </div>
-
-        <div class="footer-col developer-info">
-            <h3>Developer</h3>
-            <p>Designed by</p>
-            <a href="https://www.linkedin.com/in/nitish-kumar" target="_blank" class="dev-link">Nitish Kumar</a>
-            <div class="mail-graphic">
-                <a href="mailto:radheshayamjwellery@gmail.com">
-                    <img src="https://cdn-icons-png.flaticon.com/512/281/281769.png" alt="Gmail" width="35">
-                </a>
+            <div class="rsj-col">
+                <h3 class="rsj-h3">The Collection</h3>
+                <ul class="rsj-lux-links">
+                    <li><a href="index.html">Signature Home</a></li>
+                    <li><a href="#gold">Antique Gold Hub</a></li>
+                    <li><a href="#marriage">Bridal Marriage Suite</a></li>
+                    <li><a href="contact.html">Private Concierge</a></li>
+                </ul>
             </div>
+
+            <div class="rsj-col">
+                <h3 class="rsj-h3">The Atelier</h3>
+                <div class="rsj-contact-pill">
+                    <i class="fas fa-map-pin"></i>
+                    <p>Sidiya Ghat, Near Kali Mandir, Gaya, Bihar</p>
+                </div>
+                <div class="rsj-contact-pill">
+                    <i class="fas fa-phone-alt"></i>
+                    <p><a href="tel:+916200454206">+91 6200 454 206</a></p>
+                </div>
+            </div>
+
+            <div class="rsj-col rsj-designer-card">
+                <div class="rsj-card-glass">
+                    <h3 class="rsj-h3">Digital Craft</h3>
+                    <p>Envisioned & Built by</p>
+                    <a href="https://www.linkedin.com/in/nitish-kumar" target="_blank" class="rsj-designer-name">Nitish Kumar</a>
+                    <div class="rsj-mail-capsule">
+                        <i class="fas fa-envelope-open-text"></i>
+                        <span>radheshayamjwellery@gmail.com</span>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
-    <div class="footer-bottom">
-        <p>&copy; 2026 Radhe Shyam Jewells | Developed by Nitish Kumar</p>
+
+    <div class="rsj-footer-bottom">
+        <div class="rsj-bottom-line"></div>
+        <p>&copy; 2026 Radhe Shyam Jewells. All Rights Reserved. Crafted for Purity.</p>
     </div>
-    
+
+    <style>
+        .rsj-premium-footer {
+            background-color: #050505;
+            color: #ffffff;
+            font-family: 'Poppins', sans-serif;
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            padding: 0;
+            border-top: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        /* Luxury Background Glow */
+        .rsj-footer-bg-glow {
+            position: absolute;
+            top: -150px;
+            right: -100px;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.05) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* Gold Shimmer with Marble feel */
+        .rsj-lux-shimmer {
+            height: 3px;
+            background: linear-gradient(90deg, #996515, #D4AF37, #fcf6ba, #D4AF37, #996515);
+            background-size: 200% auto;
+            animation: rsjFlow 4s linear infinite;
+        }
+
+        @keyframes rsjFlow { 0% { background-position: 0% 50%; } 100% { background-position: 200% 50%; } }
+
+        .rsj-footer-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 100px 5% 60px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .rsj-footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+            gap: 50px;
+        }
+
+        /* Identity Styling */
+        .rsj-brand-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            letter-spacing: 2px;
+            background: linear-gradient(to right, #bf953f, #fcf6ba, #b38728);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800;
+            margin-bottom: 5px;
+        }
+
+        .rsj-brand-sub {
+            display: block;
+            font-size: 0.8rem;
+            letter-spacing: 7px;
+            color: #8a6d3b;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-top: -10px;
+            margin-bottom: 25px;
+        }
+
+        .rsj-mission { color: rgba(255, 255, 255, 0.5); font-size: 0.9rem; line-height: 1.8; margin-bottom: 30px; }
+
+        /* Icon Links with Neon Glow */
+        .rsj-social-lux { display: flex; gap: 15px; }
+        .rsj-icon-link {
+            width: 45px; height: 45px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            display: flex; align-items: center; justify-content: center;
+            color: #D4AF37; text-decoration: none; border-radius: 2px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .rsj-icon-link:hover {
+            background: #D4AF37;
+            color: #000;
+            transform: translateY(-8px) scale(1.1);
+            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
+        }
+
+        /* Link Styling */
+        .rsj-h3 {
+            font-family: 'Playfair Display', serif;
+            color: #D4AF37;
+            font-size: 1.2rem;
+            margin-bottom: 35px;
+            letter-spacing: 1px;
+            text-transform: capitalize;
+        }
+
+        .rsj-lux-links { list-style: none; padding: 0; }
+        .rsj-lux-links li { margin-bottom: 18px; }
+        .rsj-lux-links a {
+            color: rgba(255, 255, 255, 0.4);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: 0.3s;
+            position: relative;
+        }
+        .rsj-lux-links a::after {
+            content: ''; position: absolute; bottom: -5px; left: 0;
+            width: 0; height: 1px; background: #D4AF37; transition: 0.4s;
+        }
+        .rsj-lux-links a:hover { color: #fff; padding-left: 10px; }
+        .rsj-lux-links a:hover::after { width: 100%; }
+
+        /* Contact Atelier */
+        .rsj-contact-pill { display: flex; gap: 15px; margin-bottom: 25px; align-items: flex-start; }
+        .rsj-contact-pill i { color: #D4AF37; font-size: 1rem; margin-top: 5px; }
+        .rsj-contact-pill p, .rsj-contact-pill a { color: rgba(255, 255, 255, 0.5); font-size: 0.9rem; text-decoration: none; line-height: 1.5; }
+
+        /* Unique Designer Card */
+        .rsj-designer-card { position: relative; }
+        .rsj-card-glass {
+            background: rgba(212, 175, 55, 0.03);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            padding: 30px;
+            position: relative;
+            border-radius: 4px;
+            transition: 0.5s;
+        }
+        .rsj-card-glass p { font-size: 0.75rem; color: #555; text-transform: uppercase; letter-spacing: 1px; }
+        .rsj-designer-name {
+            color: #fff; font-size: 1.3rem; font-weight: 700; text-decoration: none;
+            display: block; margin: 10px 0 20px; transition: 0.3s;
+        }
+        .rsj-designer-name:hover { color: #D4AF37; letter-spacing: 1px; }
+        .rsj-mail-capsule {
+            display: flex; align-items: center; gap: 10px;
+            background: rgba(255,255,255,0.03); padding: 12px; border-radius: 2px;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+        .rsj-mail-capsule i { color: #D4AF37; font-size: 0.8rem; }
+        .rsj-mail-capsule span { font-size: 0.7rem; color: #777; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+        /* Copyright Section */
+        .rsj-footer-bottom { text-align: center; padding: 40px 5%; position: relative; }
+        .rsj-bottom-line { width: 100%; height: 1px; background: rgba(255,255,255,0.05); margin-bottom: 30px; }
+        .rsj-footer-bottom p { color: #333; font-size: 0.8rem; letter-spacing: 1px; }
+
+        /* RESPONSIVE LOGIC */
+        @media (max-width: 1100px) {
+            .rsj-footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+        }
+
+        @media (max-width: 768px) {
+            .rsj-premium-footer { text-align: center; }
+            .rsj-footer-grid { grid-template-columns: 1fr; gap: 50px; }
+            .rsj-brand-name { font-size: 1.8rem; }
+            .rsj-brand-sub { letter-spacing: 5px; }
+            .rsj-social-lux, .rsj-contact-pill, .rsj-mail-capsule { justify-content: center; }
+            .rsj-lux-links a:hover { padding-left: 0; }
+            .rsj-card-glass { border-left: none; border-top: 3px solid #D4AF37; }
+            .rsj-footer-inner { padding: 80px 5% 40px; }
+        }
+    </style>
 </footer>

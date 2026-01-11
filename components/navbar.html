@@ -1,19 +1,181 @@
-<nav class="navbar">
-    <div class="logo">
-        <span class="brand-name">RADHE SHYAM</span>
-        <span class="sub-brand">JEWELLS</span>
-    </div>
-    <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#gold">Gold</a></li>
-        <li><a href="#silver">Silver</a></li>
-        <li><a href="#marriage">Marriage Package</a></li>
-        <li><a href="#diamond">Diamond</a></li>
-        <li><a href="founder.html">Founder</a></li>
-        <li><a href="contact.html">Contact</a></li>
-    </ul>
-    <div class="nav-icons">
-        <button class="quote-btn">Enquiry</button>
-    </div>
-</nav>
+<div class="nav-wrapper">
+    <div class="flowing-gold-line"></div>
+
+    <nav class="navbar-glass">
+        <div class="nav-container">
+            
+            <div class="logo-area">
+                <div class="logo-jewel-case">
+                    <img src="assets/logo.jpeg" alt="Radhe Shyam Logo" class="main-logo">
+                    <div class="jewel-shimmer"></div>
+                </div>
+                <div class="brand-info">
+                    <h1 class="brand-main">RADHE SHYAM</h1>
+                    <div class="brand-sub-container">
+                        <span class="gold-feather"></span>
+                        <p class="brand-sub">JEWELLS</p>
+                        <span class="gold-feather"></span>
+                    </div>
+                </div>
+            </div>
+
+            <input type="checkbox" id="nav-check">
+
+            <ul class="nav-links" id="navMenu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#gold">Gold</a></li>
+                <li><a href="#silver">Silver</a></li>
+                <li><a href="#marriage">Marriage</a></li>
+                <li><a href="#diamond">Diamond</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <label for="nav-check" class="toggle-royal">
+                    <span class="t-bar top"></span>
+                    <span class="t-bar mid"></span>
+                    <span class="t-bar bot"></span>
+                </label>
+            </div>
+
+        </div>
+    </nav>
+</div>
+
+<style>
+    :root {
+        --gold-lux: linear-gradient(90deg, #8a6d3b, #d4af37, #fcf6ba, #d4af37, #8a6d3b);
+        /* 100% Transparent Glass - Background removed as requested */
+        --glass-bg: rgba(255, 255, 255, 0.05); 
+    }
+
+    /* --- Floating Container Setup --- */
+    .nav-wrapper { 
+        position: fixed; 
+        top: 0; 
+        left: 0; 
+        width: 100%; 
+        z-index: 10000;
+        transition: 0.5s ease;
+    }
+    
+    .flowing-gold-line { 
+        height: 3px; 
+        background: var(--gold-lux);
+        background-size: 200% auto;
+        animation: goldFlow 3s linear infinite;
+    }
+
+    @keyframes goldFlow {
+        0% { background-position: 0% 50%; }
+        100% { background-position: 200% 50%; }
+    }
+
+    .navbar-glass {
+        background: var(--glass-bg);
+        backdrop-filter: blur(15px); /* Premium Blur Effect */
+        -webkit-backdrop-filter: blur(15px);
+        height: 95px;
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+    }
+
+    .nav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        padding: 0 5%;
+        max-width: 1600px;
+        margin: 0 auto;
+    }
+
+    /* --- Logo Graphics --- */
+    .logo-area { display: flex; align-items: center; gap: 18px; }
+    
+    .logo-jewel-case {
+        width: 62px; height: 62px;
+        position: relative;
+        background: #fff;
+        padding: 4px;
+        border: 1px solid #D4AF37;
+        box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+    }
+
+    .main-logo { width: 100%; height: 100%; object-fit: contain; }
+
+    .brand-main {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.6rem;
+        font-weight: 900;
+        letter-spacing: 2px;
+        color: #ffffff; /* Contrast against slider images */
+        text-shadow: 2px 2px 10px rgba(0,0,0,0.4);
+        line-height: 1;
+    }
+
+    .brand-sub-container { display: flex; align-items: center; gap: 8px; margin-top: 4px; }
+    .gold-feather { height: 1px; flex: 1; background: var(--gold-lux); }
+    .brand-sub { font-size: 0.7rem; color: #D4AF37; letter-spacing: 5px; font-weight: 700; }
+
+    /* --- Navigation Menu (Desktop) --- */
+    .nav-links { display: flex; list-style: none; gap: 30px; }
+    
+    .nav-links a {
+        text-decoration: none;
+        color: #ffffff;
+        font-size: 0.85rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        position: relative;
+        transition: 0.4s;
+        text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+    }
+
+    /* Underline Hover */
+    .nav-links a::after {
+        content: "";
+        position: absolute;
+        bottom: -5px; left: 0;
+        width: 0; height: 2px;
+        background: var(--gold-lux);
+        transition: 0.3s;
+    }
+
+    .nav-links a:hover { color: #D4AF37; transform: translateY(-2px); }
+    .nav-links a:hover::after { width: 100%; }
+
+    /* --- Mobile Toggler --- */
+    #nav-check { display: none; }
+    .toggle-royal { display: none; cursor: pointer; flex-direction: column; gap: 6px; }
+    .t-bar { width: 28px; height: 2px; background: #D4AF37; transition: 0.4s; border-radius: 5px; }
+
+    /* --- Mobile Responsive Overlay --- */
+    @media (max-width: 1024px) {
+        .navbar-glass { height: 85px; }
+        .toggle-royal { display: flex; z-index: 10002; }
+        
+        .nav-links {
+            position: fixed;
+            top: 0; right: -100%;
+            width: 100%; height: 100vh;
+            background: rgba(10, 10, 10, 0.98); /* Deep dark overlay for mobile */
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: 0.6s cubic-bezier(0.7, 0, 0.3, 1);
+            z-index: 10001;
+        }
+
+        #nav-check:checked ~ .nav-links { right: 0; }
+        
+        #nav-check:checked ~ .nav-actions .toggle-royal .top { transform: translateY(8px) rotate(45deg); }
+        #nav-check:checked ~ .nav-actions .toggle-royal .mid { opacity: 0; }
+        #nav-check:checked ~ .nav-actions .toggle-royal .bot { transform: translateY(-8px) rotate(-45deg); }
+        
+        .nav-links a { font-size: 1.5rem; color: #D4AF37; margin: 15px 0; }
+    }
+</style>

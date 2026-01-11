@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imperial Gold Collection | Radhe Shyam Jewells</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --gold: #D4AF37;
+            --dark-gold: #aa771c;
+            --black: #0a0a0a;
+            --glass: rgba(255, 255, 255, 0.03);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--black);
+            color: #fff;
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* --- Header Section --- */
+        .header {
+            text-align: center;
+            padding: 80px 20px;
+            background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?q=80&w=1920');
+            background-size: cover;
+            background-position: center;
+            border-bottom: 2px solid var(--gold);
+        }
+
+        .header h1 {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(2rem, 8vw, 3.5rem);
+            color: var(--gold);
+            margin-bottom: 10px;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+        }
+
+        /* --- Collection Section --- */
+        .collection-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 2.2rem;
+            color: var(--gold);
+            display: inline-block;
+            border-bottom: 1px solid var(--gold);
+            padding-bottom: 10px;
+        }
+
+        /* --- Grid System --- */
+        .necklace-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .necklace-card {
+            background: #111;
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            padding: 15px;
+            transition: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            position: relative;
+        }
+
+        .necklace-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(212, 175, 55, 0.15);
+        }
+
+        .img-container {
+            width: 100%;
+            height: 380px;
+            background: #000;
+            overflow: hidden;
+            cursor: zoom-in;
+            border-radius: 2px;
+        }
+
+        .img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.8s;
+            opacity: 0; /* For fade-in effect */
+        }
+
+        .img-container img.loaded {
+            opacity: 1;
+        }
+
+        /* --- Actions --- */
+        .actions {
+            display: flex;
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 12px 5px;
+            border: 1px solid var(--gold);
+            background: transparent;
+            color: #fff;
+            cursor: pointer;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            text-decoration: none;
+        }
+
+        .btn:hover { background: var(--gold); color: #000; }
+        .btn-whatsapp { background: #25D366; border-color: #25D366; color: #fff; }
+        .btn-whatsapp:hover { background: #128C7E; border-color: #128C7E; }
+
+        .specs { margin-top: 15px; text-align: center; }
+        .specs h3 { font-family: 'Cinzel', serif; color: var(--gold); font-size: 1rem; margin-bottom: 5px; }
+        .specs .weight { font-size: 0.85rem; color: #aaa; margin-bottom: 10px; display: block; }
+        .quote { font-family: 'Playfair Display', serif; font-style: italic; font-size: 0.8rem; color: #777; padding-top: 8px; }
+
+        /* --- Modal Viewer --- */
+        .modal {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.98);
+            display: none; justify-content: center; align-items: center;
+            z-index: 10000; cursor: pointer;
+        }
+
+        .modal img { max-width: 95%; max-height: 90%; border: 1px solid var(--gold); }
+
+        @media (max-width: 768px) {
+            .necklace-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+            .img-container { height: 260px; }
+            .btn span { display: none; }
+            .header { padding: 50px 10px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <h1>Radhe Shyam Jewells</h1>
+        <p>"A Legacy of Purity and Grandeur"</p>
+    </header>
+
+    <div class="collection-container">
+        <div class="section-title">
+            <h2>Imperial Gold Collection</h2>
+        </div>
+
+        <div class="necklace-grid" id="gallery">
+            </div>
+    </div>
+
+    <div class="modal" id="viewer" onclick="closeImage()">
+        <img id="modalImg" src="">
+    </div>
+
+    <div id="rsj-footer-container"></div>
+
+    <script>
+        // Array configurations for all 30 images
+        // Maine image names ko img1.jpeg se img30.jpeg tak loop me set kiya hai
+        const galleryItems = [];
+        const imgPath = "assets/"; // Folder path
+        const whatsappNumber = "6207141506";
+
+        // Logic to generate 30 items
+        for(let i = 1; i <= 30; i++) {
+            galleryItems.push({
+                id: i,
+                name: `Royal Gold Design #${i}`,
+                weight: (10 + Math.random() * 40).toFixed(3) + "g", // Mock weights
+                img: `${imgPath}img${i}.jpeg`,
+                quote: "Timeless elegance for the modern queen."
+            });
+        }
+
+        const gallery = document.getElementById('gallery');
+
+        // Render Cards
+        galleryItems.forEach(item => {
+            const card = document.createElement('div');
+            card.className = 'necklace-card';
+            card.innerHTML = `
+                <div class="img-container" onclick="openImage('${item.img}')">
+                    <img src="${item.img}" alt="${item.name}" loading="lazy" onload="this.classList.add('loaded')">
+                </div>
+                <div class="specs">
+                    <h3>${item.name}</h3>
+                    <span class="weight">22K Hallmark | Approx: ${item.weight}</span>
+                    <p class="quote">"${item.quote}"</p>
+                </div>
+                <div class="actions">
+                    <a href="${item.img}" download class="btn">
+                        <i class="fas fa-download"></i> <span>Save</span>
+                    </a>
+                    <button class="btn" onclick="openImage('${item.img}')">
+                        <i class="fas fa-expand"></i> <span>View</span>
+                    </button>
+                    <button class="btn btn-whatsapp" onclick="shareWhatsApp('${item.name}', '${item.weight}', '${item.img}')">
+                        <i class="fab fa-whatsapp"></i> <span>Share</span>
+                    </button>
+                </div>
+            `;
+            gallery.appendChild(card);
+        });
+
+        // Modal Controls
+        function openImage(src) {
+            const modal = document.getElementById('viewer');
+            const modalImg = document.getElementById('modalImg');
+            modalImg.src = src;
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeImage() {
+            document.getElementById('viewer').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // WhatsApp Share
+        function shareWhatsApp(name, weight, imgUrl) {
+            const currentUrl = window.location.href;
+            const text = `Namaste Radhe Shyam Jewells, mujhe ye necklace ka design pasand aaya hai:%0A%0A*Design:* ${name}%0A*Weight:* ${weight}%0A%0ACheck here: ${currentUrl}`;
+            window.open(`https://wa.me/${whatsappNumber}?text=${text}`, '_blank');
+        }
+
+        // Script to load footer component if needed
+        fetch('components/footer.html')
+            .then(res => res.text())
+            .then(data => document.getElementById('rsj-footer-container').innerHTML = data)
+            .catch(err => console.log("Footer not found, ignoring."));
+    </script>
+</body>
+</html>

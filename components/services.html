@@ -1,0 +1,191 @@
+<section class="rsj-service-category" id="rsj-services">
+    <div class="rsj-service-container">
+        
+        <div class="rsj-service-header">
+            <span class="rsj-lux-label">Exquisite Craftsmanship</span>
+            <h2 class="rsj-lux-title">Shop by Category</h2>
+            <div class="rsj-lux-divider">
+                <span class="rsj-line"></span>
+                <i class="fas fa-crown"></i>
+                <span class="rsj-line"></span>
+            </div>
+        </div>
+
+        <div class="rsj-service-grid">
+            
+            <a href="necklace.html" class="rsj-service-card">
+    <div class="rsj-img-wrapper">
+        <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?q=80&w=800" alt="Gold Necklaces">
+        <div class="rsj-card-overlay">
+            <span class="rsj-discover-btn">Discover All</span>
+        </div>
+        <span class="rsj-purity-tag">PURE 22K</span>
+    </div>
+    <div class="rsj-service-info">
+        <h3>Imperial Necklaces</h3>
+        <p>Signature Gold & Sterling Silver</p>
+    </div>
+</a>
+            <a href="shop.html?category=bangles" class="rsj-service-card">
+                <div class="rsj-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1619119069152-a2b331eb392a?q=80&w=800" alt="Gold Bangles">
+                    <div class="rsj-card-overlay">
+                        <span class="rsj-discover-btn">Discover All</span>
+                    </div>
+                    <span class="rsj-purity-tag">ANTIQUE</span>
+                </div>
+                <div class="rsj-service-info">
+                    <h3>Royal Bangles</h3>
+                    <p>22K Pure Gold & Antique Silver</p>
+                </div>
+            </a>
+
+            <a href="shop.html?category=rings" class="rsj-service-card">
+                <div class="rsj-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?q=80&w=800" alt="Gold Rings">
+                    <div class="rsj-card-overlay">
+                        <span class="rsj-discover-btn">Discover All</span>
+                    </div>
+                </div>
+                <div class="rsj-service-info">
+                    <h3>Designer Rings</h3>
+                    <p>Diamond Studded Gold & Silver</p>
+                </div>
+            </a>
+
+            <a href="shop.html?category=earrings" class="rsj-service-card">
+                <div class="rsj-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1635767798638-3e25273a8236?q=80&w=800" alt="Gold Earrings">
+                    <div class="rsj-card-overlay">
+                        <span class="rsj-discover-btn">Discover All</span>
+                    </div>
+                </div>
+                <div class="rsj-service-info">
+                    <h3>Timeless Earrings</h3>
+                    <p>Traditional Jhumkas & Modern Silver</p>
+                </div>
+            </a>
+
+        </div>
+    </div>
+
+    <style>
+        .rsj-service-category {
+            padding: 100px 5%;
+            background-color: #ffffff; /* Clean Ivory White */
+            font-family: 'Poppins', sans-serif;
+            position: relative;
+            z-index: 5;
+        }
+
+        .rsj-service-container { max-width: 1300px; margin: 0 auto; }
+
+        /* Header Style */
+        .rsj-service-header { text-align: center; margin-bottom: 60px; }
+        .rsj-lux-label { font-size: 0.75rem; letter-spacing: 5px; color: #D4AF37; text-transform: uppercase; font-weight: 700; display: block; margin-bottom: 10px; }
+        .rsj-lux-title { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 5vw, 2.8rem); color: #111; margin-bottom: 15px; }
+        .rsj-lux-divider { display: flex; align-items: center; justify-content: center; gap: 15px; color: #D4AF37; }
+        .rsj-lux-divider .rsj-line { width: 60px; height: 1px; background: #D4AF37; opacity: 0.4; }
+
+        /* Responsive Grid: Desktop 4, Tablet/Mobile 2 Columns */
+        .rsj-service-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        /* Premium Card UI */
+        .rsj-service-card {
+            text-decoration: none;
+            display: block;
+            background: #fff;
+            transition: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            border-bottom: 3px solid transparent;
+        }
+
+        .rsj-img-wrapper {
+            aspect-ratio: 4/5;
+            overflow: hidden;
+            position: relative;
+            background: #fdfdfd;
+        }
+
+        .rsj-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 1s ease;
+        }
+
+        /* Hover Overlay Logic */
+        .rsj-card-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: 0.4s;
+            backdrop-filter: blur(4px);
+        }
+
+        .rsj-discover-btn {
+            border: 1px solid #fff;
+            color: #fff;
+            padding: 12px 25px;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: 0.3s;
+        }
+
+        /* Purity Badge */
+        .rsj-purity-tag {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: #D4AF37;
+            color: #000;
+            font-size: 0.6rem;
+            font-weight: 800;
+            padding: 4px 10px;
+            letter-spacing: 1px;
+            z-index: 2;
+        }
+
+        /* Text Information */
+        .rsj-service-info { padding: 25px 10px; text-align: center; }
+        .rsj-service-info h3 { font-family: 'Playfair Display', serif; color: #111; font-size: 1.25rem; margin-bottom: 8px; transition: 0.3s; }
+        .rsj-service-info p { font-size: 0.7rem; color: #888; text-transform: uppercase; letter-spacing: 1.5px; }
+
+        /* Desktop Hover Effects */
+        .rsj-service-card:hover { transform: translateY(-10px); border-bottom-color: #D4AF37; }
+        .rsj-service-card:hover img { transform: scale(1.1); }
+        .rsj-service-card:hover .rsj-card-overlay { opacity: 1; }
+        .rsj-service-card:hover h3 { color: #D4AF37; }
+        .rsj-discover-btn:hover { background: #fff; color: #000; }
+
+        /* MOBILE & TABLET RESPONSIVE FIXES */
+        @media (max-width: 1024px) {
+            .rsj-service-grid { 
+                grid-template-columns: repeat(2, 1fr); /* 2 Columns for Mobile as requested */
+                gap: 15px; 
+            }
+            .rsj-service-category { padding: 80px 3%; }
+            .rsj-lux-title { font-size: 1.8rem; }
+        }
+
+        @media (max-width: 480px) {
+            .rsj-service-info h3 { font-size: 1.1rem; }
+            .rsj-img-wrapper { aspect-ratio: 1/1; } /* Square on small phones for better fit */
+            .rsj-discover-btn { padding: 8px 15px; font-size: 0.65rem; }
+        }
+    </style>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            console.log("Royal Service Category Grid Active.");
+        });
+    </script>
+</section>
