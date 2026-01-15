@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Exquisite Earrings | Radhe Shyam Jewells</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Playfair+Display:ital,wght@0,400;0,700;1,500&family=Poppins:wght@200;300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --gold-gradient: linear-gradient(135deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+            --gold-solid: #D4AF37;
+            --deep-black: #050505;
+            --pure-white: #ffffff;
+            --soft-gray: #f4f4f4;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        
+        body { background-color: var(--soft-gray); color: #333; font-family: 'Poppins', sans-serif; overflow-x: hidden; }
+
+        /* --- Luxury Hero Header --- */
+        .earring-hero {
+            height: 75vh;
+            background: radial-gradient(circle at 50% 50%, #2c2c2c 0%, #000 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+            position: relative;
+            clip-path: polygon(0 0, 100% 0, 100% 88%, 50% 100%, 0 88%);
+            margin-bottom: 50px;
+            padding: 20px;
+        }
+
+        .hero-img {
+            max-width: 450px;
+            width: 85%;
+            filter: drop-shadow(0 0 30px rgba(212, 175, 55, 0.5));
+            margin-bottom: 20px;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+        }
+
+        .hero-tag {
+            background: var(--gold-solid);
+            color: #000;
+            padding: 5px 15px;
+            font-weight: 800;
+            font-size: 0.8rem;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            display: inline-block;
+            text-transform: uppercase;
+        }
+
+        .earring-hero h1 {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(2.2rem, 8vw, 4.5rem);
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 900;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+        }
+
+        /* --- Collection Grid --- */
+        .collection-wrapper { max-width: 1400px; margin: 0 auto; padding: 20px; }
+        
+        .section-title {
+            font-family: 'Cinzel', serif;
+            font-size: 2.2rem;
+            margin-bottom: 40px;
+            text-align: left;
+            border-bottom: 3px solid var(--gold-solid);
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        .earring-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .earring-card {
+            background: var(--pure-white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        .earring-card:hover {
+            transform: translateY(-12px);
+            border-color: var(--gold-solid);
+            box-shadow: 0 20px 50px rgba(212, 175, 55, 0.15);
+        }
+
+        .img-box {
+            width: 100%;
+            height: 320px;
+            background: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .img-box img {
+            max-width: 85%;
+            max-height: 85%;
+            object-fit: contain;
+            transition: 0.8s;
+        }
+
+        .earring-card:hover .img-box img { transform: scale(1.15); }
+
+        .card-content { padding: 25px; text-align: left; }
+        .card-content h3 { font-family: 'Cinzel', serif; font-size: 1.1rem; margin-bottom: 8px; color: #111; }
+        .weight-tag { color: var(--gold-solid); font-weight: 700; font-size: 1rem; display: block; margin-bottom: 20px; }
+
+        /* --- WhatsApp Enquire Button --- */
+        .btn-wa {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            background: #25D366;
+            color: #fff;
+            text-decoration: none;
+            padding: 14px;
+            border-radius: 8px;
+            font-weight: 700;
+            transition: 0.3s;
+        }
+        .btn-wa:hover { background: #128C7E; transform: scale(1.02); }
+
+        /* --- Full Screen Modal --- */
+        #viewerModal {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.96);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
+        }
+        #viewerModal img { max-width: 90%; max-height: 85%; border: 1px solid var(--gold-solid); box-shadow: 0 0 40px rgba(212, 175, 55, 0.3); }
+
+        /* --- Mobile Responsiveness --- */
+        @media (max-width: 768px) {
+            .earring-hero { height: 50vh; clip-path: none; margin-bottom: 30px; }
+            .hero-img { max-width: 250px; }
+            .earring-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; padding: 10px; }
+            .img-box { height: 220px; }
+            .card-content { padding: 15px; }
+            .card-content h3 { font-size: 0.9rem; }
+            .weight-tag { font-size: 0.85rem; margin-bottom: 10px; }
+            .btn-wa span { display: none; } 
+        }
+    </style>
+</head>
+<body>
+
+    <div id="rsj-navbar-placeholder"></div>
+
+    <header class="earring-hero">
+        <img src="https://images.unsplash.com/photo-1535633302704-b02f4faad75c?q=80&w=800" alt="Featured Earring" class="hero-img">
+        <span class="hero-tag">22K Pure Gold</span>
+        <h1>Exquisite Earrings</h1>
+        <p style="color: #ccc; font-family: 'Playfair Display', serif; font-style: italic;">Crafted for every special moment</p>
+    </header>
+
+    <main class="collection-wrapper">
+        <h2 class="section-title">Luxury Collection</h2>
+        <div class="earring-grid" id="earringGallery">
+            </div>
+    </main>
+
+    <div id="rsj-footer-container"></div>
+
+    <div id="viewerModal" onclick="this.style.display='none'">
+        <img id="modalImg" src="">
+    </div>
+
+    <script>
+        // Universal Loader based on your project structure
+        async function loadRSJ(id, path) {
+            const el = document.getElementById(id);
+            if (el) {
+                try {
+                    const res = await fetch(path);
+                    if (res.ok) el.innerHTML = await res.text();
+                } catch (e) { console.error("Loader Error:", e); }
+            }
+        }
+        loadRSJ('rsj-navbar-placeholder', 'components/navbar.html');
+        loadRSJ('rsj-footer-container', 'components/footer.html');
+
+        // Gallery Config
+        const WHATSAPP = "6207141506";
+        const ASSET_PATH = "assets/earrings/";
+
+        // Sample data matching the premium style in your screenshots
+        const earringItems = [
+            { name: "Royal Gold Jhumka", weight: "12.450g", img: "https://images.unsplash.com/photo-1630019241505-da567f339f94?q=80&w=600" },
+            { name: "Peacock Art Studs", weight: "8.120g", img: "https://images.unsplash.com/photo-1635767798638-3e25273a8236?q=80&w=600" },
+            { name: "Antique Chandbali", weight: "18.600g", img: "https://images.unsplash.com/photo-1629224316170-621305889a2e?q=80&w=600" },
+            { name: "Designer Floral Drop", weight: "6.220g", img: "https://images.unsplash.com/photo-1630019241505-da567f339f94?q=80&w=600" }
+        ];
+
+        const gallery = document.getElementById('earringGallery');
+
+        // Logic to generate items (Looping sample data for 12 items)
+        for(let i = 0; i < 12; i++) {
+            const item = earringItems[i % earringItems.length];
+            gallery.innerHTML += `
+                <div class="earring-card">
+                    <div class="img-box" onclick="openModal('${item.img}')">
+                        <img src="${item.img}" alt="${item.name}">
+                    </div>
+                    <div class="card-content">
+                        <h3>${item.name}</h3>
+                        <span class="weight-tag">Weight: ${item.weight}</span>
+                        <a href="https://wa.me/91${WHATSAPP}?text=I am interested in ${item.name}" class="btn-wa" target="_blank">
+                            <i class="fab fa-whatsapp"></i> <span>Enquire Now</span>
+                        </a>
+                    </div>
+                </div>`;
+        }
+
+        function openModal(src) {
+            document.getElementById('modalImg').src = src;
+            document.getElementById('viewerModal').style.display = 'flex';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>The Royal Bride | Radhe Shyam Jewells</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Playfair+Display:ital,wght@0,400;0,700;1,600&family=Poppins:wght@200;300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --gold-gradient: linear-gradient(135deg, #bf953f 0%, #fcf6ba 45%, #b38728 70%, #fbf5b7 100%);
+            --royal-red: #4a0404;
+            --deep-black: #050505;
+            --gold-solid: #D4AF37;
+            --glass-card: rgba(255, 255, 255, 0.04);
+        }
+
+        /* --- Luxury Layout --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: var(--deep-black); color: #fff; font-family: 'Poppins', sans-serif; overflow-x: hidden; }
+
+        /* --- Cinematic Hero with 'Book' Hook --- */
+        .hero {
+            height: 95vh; display: flex; align-items: center; justify-content: center;
+            background: linear-gradient(rgba(0,0,0,0.5), #000), 
+                        url('https://images.unsplash.com/photo-1621345863216-98188046b7a1?q=80&w=1600');
+            background-size: cover; background-position: center; position: relative;
+        }
+
+        .hero-overlay { text-align: center; max-width: 800px; padding: 20px; }
+        .hero-overlay h1 { 
+            font-family: 'Cinzel', serif; font-size: clamp(2.5rem, 8vw, 5rem); 
+            background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; 
+            margin-bottom: 20px; text-transform: uppercase;
+        }
+        
+        /* Urgency Banner */
+        .limited-tag {
+            background: var(--gold-solid); color: #000; padding: 5px 20px;
+            font-weight: 800; font-size: 0.8rem; border-radius: 50px;
+            margin-bottom: 20px; display: inline-block; animation: pulse 2s infinite;
+        }
+        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.1); } 100% { transform: scale(1); } }
+
+        /* --- Booking Form Card --- */
+        .booking-section { padding: 80px 6%; background: #000; }
+        .booking-card {
+            background: var(--glass-card); border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 20px; padding: 40px; display: grid; grid-template-columns: 1fr 1fr; gap: 40px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+        }
+
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; color: var(--gold-solid); font-size: 0.7rem; text-transform: uppercase; margin-bottom: 8px; }
+        .form-group input, .form-group select {
+            width: 100%; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+            padding: 15px; color: #fff; border-radius: 8px; font-family: 'Poppins';
+        }
+        .form-group input:focus { border-color: var(--gold-solid); outline: none; }
+
+        .book-btn {
+            background: var(--gold-gradient); color: #000; width: 100%; border: none;
+            padding: 18px; font-weight: 900; font-family: 'Cinzel'; border-radius: 8px;
+            cursor: pointer; transition: 0.4s; font-size: 1rem;
+        }
+        .book-btn:hover { letter-spacing: 2px; box-shadow: 0 0 20px var(--gold-solid); }
+
+        /* --- Shringar List Sections --- */
+        .package-details { padding: 100px 6%; }
+        .detail-row {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; margin-bottom: 120px;
+        }
+        .detail-row:nth-child(even) { direction: rtl; }
+        .detail-row:nth-child(even) .detail-text { direction: ltr; }
+
+        .detail-img {
+            position: relative; border-radius: 20px; overflow: hidden;
+            border: 1px solid rgba(212,175,55,0.3);
+        }
+        .detail-img img { width: 100%; transition: 1s ease; }
+        .detail-img:hover img { transform: scale(1.1); }
+
+        .detail-text h2 { font-family: 'Cinzel', serif; font-size: 2.5rem; color: var(--gold-solid); margin-bottom: 20px; }
+        .shringar-points { list-style: none; margin-top: 25px; }
+        .shringar-points li {
+            padding: 15px 0; border-bottom: 1px solid rgba(255,255,255,0.05);
+            display: flex; justify-content: space-between; font-size: 0.95rem; color: #ccc;
+        }
+        .shringar-points li b { color: #fff; }
+
+        /* --- Trust Badges --- */
+        .trust-section {
+            background: #111; padding: 60px 0; display: flex; justify-content: space-around;
+            text-align: center; border-top: 1px solid rgba(212,175,55,0.1);
+        }
+        .trust-badge i { font-size: 2.5rem; background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 15px; }
+        .trust-badge p { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; }
+
+        /* --- Floating CTA --- */
+        .fixed-book {
+            position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
+            width: 90%; max-width: 400px; z-index: 1000; display: none;
+        }
+
+        /* --- Mobile Responsiveness --- */
+        @media (max-width: 992px) {
+            .booking-card, .detail-row { grid-template-columns: 1fr; }
+            .hero-overlay h1 { font-size: 3rem; }
+            .fixed-book { display: block; }
+        }
+    </style>
+</head>
+<body>
+
+    <section class="hero">
+        <div class="hero-overlay">
+            <span class="limited-tag">EXCLUSIVE 2026 BRIDAL EDITION</span>
+            <h1>The Bridal River</h1>
+            <p style="color: #aaa; letter-spacing: 5px; font-weight: 300;">ONLY 5 CUSTOM COLLECTIONS REMAINING THIS MONTH</p>
+            <a href="#book" class="book-btn" style="width: auto; padding: 15px 40px; margin-top: 30px; display: inline-block;">Book Private Viewing</a>
+        </div>
+    </section>
+
+    <div class="trust-section">
+        <div class="trust-badge"><i class="fas fa-certificate"></i><p>BIS Hallmark</p></div>
+        <div class="trust-badge"><i class="fas fa-gem"></i><p>GIA Diamond</p></div>
+        <div class="trust-badge"><i class="fas fa-hand-holding-heart"></i><p>Buyback Policy</p></div>
+    </div>
+
+    <section class="package-details">
+        <div class="detail-row">
+            <div class="detail-img">
+                <img src="https://images.unsplash.com/photo-1599643477810-ac362799c856?q=80&w=800" alt="Gold Set">
+            </div>
+            <div class="detail-text">
+                <h2>Heritage Gold <br><span style="font-size: 1.2rem; color:#fff;">Imperial Nakshi Work</span></h2>
+                <p>Humare sets ka haar gold ki ek pavitra nadi ki tarah behta hai, jo dulhan ki shaan ko royal banata hai.</p>
+                <ul class="shringar-points">
+                    <li>Necklace: Grand Aad Choker <b>98.40g</b></li>
+                    <li>Rani Haar: Triple Layered <b>52.10g</b></li>
+                    <li>Maang Tikka: Chand-Suraj <b>14.30g</b></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="detail-row">
+            <div class="detail-img">
+                <img src="https://images.unsplash.com/photo-1630019241505-da567f339f94?q=80&w=800" alt="Diamond River">
+            </div>
+            <div class="detail-text">
+                <h2>Diamond River <br><span style="font-size: 1.2rem; color:#fff;">VVS-EF Brilliance</span></h2>
+                <p>Har diamond ko 'River Quality' ke hisab se select kiya gaya hai, jo roshni ko saat rango mein bikher deta hai.</p>
+                <ul class="shringar-points">
+                    <li>Earrings: Cascade Drops <b>4.50 cts</b></li>
+                    <li>Ring: Solitaire Flow <b>2.10 cts</b></li>
+                    <li>Nath: Diamond Star <b>0.80 cts</b></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="booking-section" id="book">
+        <div class="grid-header" style="text-align: center; margin-bottom: 50px;">
+            <h2 class="cinzel" style="font-size: 2.5rem; color: var(--gold-solid);">Secure Your Dream Set</h2>
+            <p>Fill in details to get a personalized quote and home trial.</p>
+        </div>
+        
+        <div class="booking-card">
+            <div class="form-side">
+                <form id="bridalBookingForm">
+                    <div class="form-group">
+                        <label>Bridal Name</label>
+                        <input type="text" id="name" placeholder="Enter your full name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Wedding Date</label>
+                        <input type="date" id="date" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Select Collection Type</label>
+                        <select id="collection">
+                            <option>Heritage Gold (Full Set)</option>
+                            <option>Diamond River (Full Set)</option>
+                            <option>Polki Royal (Full Set)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Your Budget (Optional)</label>
+                        <input type="text" id="budget" placeholder="e.g. 5 Lakhs - 10 Lakhs">
+                    </div>
+                    <button type="submit" class="book-btn">Get Detailed Quotation</button>
+                </form>
+            </div>
+            <div class="benefits-side" style="padding: 20px;">
+                <h3 class="cinzel" style="color: var(--gold-solid); margin-bottom: 20px;">Why Book Now?</h3>
+                <ul class="shringar-points">
+                    <li><i class="fas fa-check"></i> Free Home Trial of Sample Sets</li>
+                    <li><i class="fas fa-check"></i> 0% Making Charges for Early Booking</li>
+                    <li><i class="fas fa-check"></i> Direct Access to Head Designer</li>
+                    <li><i class="fas fa-check"></i> Gold Rate Protection Guarantee</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <div class="fixed-book">
+        <a href="#book" class="book-btn" style="display: block; text-align: center; text-decoration: none;">BOOK YOUR BRIDAL VIEWING</a>
+    </div>
+
+    <script>
+        // WhatsApp Booking Logic
+        document.getElementById('bridalBookingForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const weddingDate = document.getElementById('date').value;
+            const collection = document.getElementById('collection').value;
+            const budget = document.getElementById('budget').value;
+            
+            const message = `Namaste Radhe Shyam Jewells! I want to book a Bridal Consultation:%0A%0A*Name:* ${name}%0A*Wedding Date:* ${weddingDate}%0A*Collection:* ${collection}%0A*Budget:* ${budget}%0A%0A_Please send me the detailed brochure and quotation._`;
+            
+            window.open(`https://wa.me/916207141506?text=${message}`, '_blank');
+        });
+
+        // Sticky Button Reveal on Scroll
+        window.addEventListener('scroll', function() {
+            const btn = document.querySelector('.fixed-book');
+            if (window.scrollY > 500) {
+                btn.style.display = 'block';
+            } else {
+                btn.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

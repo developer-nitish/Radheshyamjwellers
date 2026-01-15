@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Exquisite Rings | Radhe Shyam Jewells</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Playfair+Display:ital,wght@0,400;0,700;1,500&family=Poppins:wght@200;300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --gold-gradient: linear-gradient(135deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+            --gold-solid: #D4AF37;
+            --deep-black: #050505;
+            --pure-white: #ffffff;
+            --soft-gray: #f4f4f4;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        
+        body { background-color: var(--soft-gray); color: #333; font-family: 'Poppins', sans-serif; overflow-x: hidden; }
+
+        /* --- Hero Section (Premium Black & Gold) --- */
+        .ring-hero {
+            height: 75vh;
+            background: radial-gradient(circle at 50% 50%, #2c2c2c 0%, #000 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+            position: relative;
+            clip-path: polygon(0 0, 100% 0, 100% 88%, 50% 100%, 0 88%);
+            margin-bottom: 50px;
+            padding: 20px;
+        }
+
+        .hero-ring-img {
+            max-width: 400px;
+            width: 80%;
+            filter: drop-shadow(0 0 30px rgba(212, 175, 55, 0.4));
+            margin-bottom: 20px;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+        }
+
+        .ring-hero h1 {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(2.2rem, 8vw, 4.5rem);
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 900;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+        }
+
+        .hero-tag {
+            background: var(--gold-solid);
+            color: #000;
+            padding: 6px 18px;
+            font-weight: 800;
+            font-size: 0.85rem;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            display: inline-block;
+            letter-spacing: 1px;
+        }
+
+        /* --- Collection Wrapper --- */
+        .collection-wrapper { max-width: 1400px; margin: 0 auto; padding: 20px; }
+        
+        .section-title {
+            font-family: 'Cinzel', serif;
+            font-size: 2.2rem;
+            margin-bottom: 40px;
+            text-align: left;
+            border-bottom: 3px solid var(--gold-solid);
+            display: inline-block;
+            padding-bottom: 10px;
+            color: #111;
+        }
+
+        .ring-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .ring-card {
+            background: var(--pure-white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        .ring-card:hover {
+            transform: translateY(-12px);
+            border-color: var(--gold-solid);
+            box-shadow: 0 20px 50px rgba(212, 175, 55, 0.15);
+        }
+
+        .img-box {
+            width: 100%;
+            height: 320px;
+            background: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .img-box img {
+            max-width: 85%;
+            max-height: 85%;
+            object-fit: contain;
+            transition: 0.8s;
+        }
+
+        .ring-card:hover .img-box img { transform: scale(1.18); }
+
+        .card-content { padding: 25px; text-align: left; }
+        .card-content h3 { font-family: 'Cinzel', serif; font-size: 1.15rem; margin-bottom: 8px; color: #111; }
+        .card-content p { color: #666; font-size: 0.9rem; margin-bottom: 15px; line-height: 1.5; }
+        .price-tag { color: var(--gold-solid); font-weight: 800; font-size: 1.2rem; display: block; margin-bottom: 20px; }
+
+        .btn-wa {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            background: #25D366;
+            color: #fff;
+            text-decoration: none;
+            padding: 14px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            transition: 0.3s;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.2);
+        }
+        .btn-wa:hover { background: #128C7E; transform: scale(1.02); }
+
+        /* --- Full Screen Modal --- */
+        #viewerModal {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.96);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
+        }
+        #viewerModal img { max-width: 90%; max-height: 85%; border: 1px solid var(--gold-solid); box-shadow: 0 0 40px rgba(212, 175, 55, 0.3); }
+
+        /* --- Mobile Responsiveness --- */
+        @media (max-width: 768px) {
+            .ring-hero { height: 55vh; clip-path: none; margin-bottom: 30px; }
+            .hero-ring-img { max-width: 250px; }
+            .ring-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; padding: 10px; }
+            .img-box { height: 220px; }
+            .card-content { padding: 15px; }
+            .card-content h3 { font-size: 0.9rem; }
+            .card-content p { display: none; } /* Hide desc on mobile for cleaner look */
+            .price-tag { font-size: 1rem; margin-bottom: 10px; }
+            .btn-wa { padding: 10px; font-size: 0.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="rsj-navbar-placeholder"></div>
+
+    <section class="ring-hero">
+        <img src="https://pngimg.com/uploads/ring/ring_PNG28.png" alt="Featured Ring" class="hero-ring-img">
+        <span class="hero-tag">22K PURE GOLD</span>
+        <h1>Exquisite Rings</h1>
+        <p>Crafted for Every Special Moment</p>
+    </section>
+
+    <main class="collection-wrapper">
+        <h2 class="section-title">Imperial Collection</h2>
+        <div class="ring-grid" id="ringGallery">
+            </div>
+    </main>
+
+    <div id="rsj-footer-container"></div>
+
+    <div id="viewerModal" onclick="this.style.display='none'">
+        <img id="modalImg" src="">
+    </div>
+
+    <script>
+        // --- Universal Component Loader ---
+        async function loadRSJComponent(id, path) {
+            const el = document.getElementById(id);
+            if (el) {
+                try {
+                    const res = await fetch(path);
+                    if (res.ok) el.innerHTML = await res.text();
+                } catch (e) { console.error("Loader Error:", e); }
+            }
+        }
+        loadRSJComponent('rsj-navbar-placeholder', 'components/navbar.html');
+        loadRSJComponent('rsj-footer-container', 'components/footer.html');
+
+        // --- Gallery Configuration ---
+        const RING_CONFIG = {
+            whatsapp: "6207141506",
+            assetPath: "assets/rings/",
+            totalItems: 30
+        };
+
+        const ringData = [
+            { name: "Royal Solitaire Band", weight: "5.240g", desc: "Classic diamond-cut solitaire finish in hallmark 22K gold." },
+            { name: "Filigree Queen Ring", weight: "7.150g", desc: "Intricate gold thread work inspired by royal heritage." },
+            { name: "Modern Wedding Knot", weight: "4.820g", desc: "Minimalist design perfect for daily luxury wear." },
+            { name: "Emerald Studded Vanki", weight: "9.300g", desc: "Traditional Vanki style ring with premium gemstones." }
+        ];
+
+        const gallery = document.getElementById('ringGallery');
+
+        // Loop to generate 30 items
+        for(let i = 1; i <= RING_CONFIG.totalItems; i++) {
+            const info = ringData[(i - 1) % ringData.length];
+            const card = document.createElement('div');
+            card.className = 'ring-card';
+            
+            // Image fallback using jewelry-related placeholders
+            const placeholderImg = `https://images.unsplash.com/photo-1605100804763-247f67b3557e?q=80&w=600`;
+            const realImgPath = `${RING_CONFIG.assetPath}ring${i}.jpeg`;
+
+            card.innerHTML = `
+                <div class="img-box" onclick="openModal('${realImgPath}')">
+                    <img src="${realImgPath}" alt="Ring" onerror="this.src='${placeholderImg}'">
+                </div>
+                <div class="card-content">
+                    <h3>${info.name} #${i}</h3>
+                    <p>${info.desc}</p>
+                    <span class="price-tag">Weight: ${info.weight}</span>
+                    <a href="https://wa.me/91${RING_CONFIG.whatsapp}?text=I am interested in Ring Design #${i}" class="btn-wa" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Enquire on WhatsApp
+                    </a>
+                </div>`;
+            gallery.appendChild(card);
+        }
+
+        function openModal(src) {
+            document.getElementById('modalImg').src = src;
+            document.getElementById('viewerModal').style.display = 'flex';
+        }
+    </script>
+</body>
+</html>

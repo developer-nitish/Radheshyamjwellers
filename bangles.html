@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Imperial Necklaces | Radhe Shyam Jewells</title>
+    <title>Royal Bangles Collection | Radhe Shyam Jewells</title>
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Playfair+Display:ital,wght@0,400;0,700;1,500&family=Poppins:wght@200;300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
-
+    
     <style>
         :root {
             --gold-gradient: linear-gradient(135deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
@@ -52,13 +51,13 @@
 
         /* --- Grid & Card Styling --- */
         .collection-wrapper { max-width: 1400px; margin: 0 auto; padding: 20px; }
-        .necklace-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 30px; }
-        .necklace-card { background: var(--pure-white); border-radius: 8px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: 0.4s; display: flex; flex-direction: column; border: 1px solid transparent; }
-        .necklace-card:hover { transform: translateY(-10px); border: 1px solid var(--gold-solid); box-shadow: 0 15px 40px rgba(212, 175, 55, 0.2); }
+        .bangle-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 30px; }
+        .bangle-card { background: var(--pure-white); border-radius: 8px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: 0.4s; display: flex; flex-direction: column; border: 1px solid transparent; }
+        .bangle-card:hover { transform: translateY(-10px); border: 1px solid var(--gold-solid); box-shadow: 0 15px 40px rgba(212, 175, 55, 0.2); }
 
         .img-box { width: 100%; height: 380px; background: #000; display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative; }
         .img-box img { max-width: 90%; max-height: 90%; object-fit: contain; transition: 0.6s; }
-        .necklace-card:hover .img-box img { transform: scale(1.15); }
+        .bangle-card:hover .img-box img { transform: scale(1.15); }
 
         .pure-badge { position: absolute; top: 15px; right: 15px; background: var(--gold-gradient); color: #000; font-size: 0.65rem; font-weight: 800; padding: 4px 10px; border-radius: 2px; }
 
@@ -78,7 +77,7 @@
         /* --- Mobile Responsiveness --- */
         @media (max-width: 768px) {
             .rsj-hero-header { height: 45vh; clip-path: none; }
-            .necklace-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; padding: 10px; }
+            .bangle-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; padding: 10px; }
             .img-box { height: 240px; }
             .lux-btn span { display: none; }
             .card-content { padding: 12px; }
@@ -90,12 +89,12 @@
     <div id="rsj-navbar-placeholder"></div>
 
     <header class="rsj-hero-header">
-        <h1>Imperial Necklaces</h1>
-        <p>Tradition in Every Golden Grain</p>
+        <h1>Imperial Bangles</h1>
+        <p>Elegance That Circles Your Grace</p>
     </header>
 
     <main class="collection-wrapper">
-        <div class="necklace-grid" id="mainGallery"></div>
+        <div class="bangle-grid" id="bangleGallery"></div>
     </main>
 
     <div id="rsj-footer-container"></div>
@@ -105,57 +104,58 @@
     </div>
 
     <script>
-        // --- Component Loader Logic ---
+        // --- Component Loader ---
         async function loadRSJComponent(elementId, filePath) {
             const placeholder = document.getElementById(elementId);
             if (placeholder) {
                 try {
                     const response = await fetch(filePath);
-                    if (response.ok) {
-                        placeholder.innerHTML = await response.text();
-                    }
-                } catch (err) { console.error("Load failed:", err); }
+                    if (response.ok) placeholder.innerHTML = await response.text();
+                } catch (err) { console.error("Component load failed:", err); }
             }
         }
 
-        // Call Components
         loadRSJComponent('rsj-navbar-placeholder', 'components/navbar.html');
         loadRSJComponent('rsj-footer-container', 'components/footer.html');
 
-        // --- Gallery Configuration ---
-        const CONFIG = {
+        // --- Bangle Gallery Configuration ---
+        const BANGLE_CONFIG = {
             whatsapp: "6207141506",
-            assetPath: "assets/",
-            totalItems: 30
+            assetPath: "assets/bangles/", // Alag folder for bangles suggested
+            totalItems: 20 // Aap ise 30-40 kar sakte hain
         };
 
-        const baseInfo = [
-            { title: "Royal Temple Bloom", weight: "42.030g" },
-            { title: "Filigree Art Choker", weight: "27.890g" },
-            { title: "Golden Petal Rani-Haar", weight: "44.620g" },
-            { title: "Mandala Pendant Suite", weight: "22.220g" },
-            { title: "Antique Heart Dangler", weight: "34.750g" }
+        const bangleInfo = [
+            { title: "Antique Nakshi Bangle", weight: "32.450g" },
+            { title: "Royal Polki Kada", weight: "45.120g" },
+            { title: "Filigree Gold Gokhru", weight: "28.900g" },
+            { title: "Temple Work Vanki", weight: "38.220g" },
+            { title: "Classic Solid Gold Churi", weight: "18.600g" }
         ];
 
-        const gallery = document.getElementById('mainGallery');
+        const gallery = document.getElementById('bangleGallery');
 
-        for(let i = 1; i <= CONFIG.totalItems; i++) {
-            const info = baseInfo[(i - 1) % baseInfo.length];
+        for(let i = 1; i <= BANGLE_CONFIG.totalItems; i++) {
+            const info = bangleInfo[(i - 1) % bangleInfo.length];
             const card = document.createElement('div');
-            card.className = 'necklace-card';
+            card.className = 'bangle-card';
+            
+            // Note: Ensure images are named bangle1.jpeg, bangle2.jpeg etc.
+            const imgFileName = `bangle${i}.jpeg`; 
+
             card.innerHTML = `
-                <div class="img-box" onclick="openModal('${CONFIG.assetPath}img${i}.jpeg')">
+                <div class="img-box" onclick="openModal('${BANGLE_CONFIG.assetPath}${imgFileName}')">
                     <span class="pure-badge">PURE 22K</span>
-                    <img src="${CONFIG.assetPath}img${i}.jpeg" alt="Jewelry" onerror="this.src='https://via.placeholder.com/400x400?text=Jewelry+Item'">
+                    <img src="${BANGLE_CONFIG.assetPath}${imgFileName}" alt="Bangle" onerror="this.src='https://via.placeholder.com/400x400?text=Bangle+Design'">
                 </div>
                 <div class="card-content">
                     <h3>${info.title} #${i}</h3>
                     <span class="weight-text">Approx Weight: ${info.weight}</span>
                     <div class="btn-group">
-                        <button class="lux-btn btn-view" onclick="openModal('${CONFIG.assetPath}img${i}.jpeg')">
+                        <button class="lux-btn btn-view" onclick="openModal('${BANGLE_CONFIG.assetPath}${imgFileName}')">
                             <i class="fas fa-expand"></i> <span>View</span>
                         </button>
-                        <button class="lux-btn btn-wa" onclick="sendWA('${info.title} #${i}', '${info.weight}', 'img${i}.jpeg')">
+                        <button class="lux-btn btn-wa" onclick="sendWA('${info.title} #${i}', '${info.weight}', '${imgFileName}')">
                             <i class="fab fa-whatsapp"></i> <span>Enquire</span>
                         </button>
                     </div>
@@ -169,8 +169,8 @@
         }
 
         function sendWA(name, weight, img) {
-            const text = `Namaste Radhe Shyam Jewells, I am interested in:\n\n*Name:* ${name}\n*Weight:* ${weight}\n*Code:* ${img}`;
-            window.open(`https://wa.me/91${CONFIG.whatsapp}?text=${encodeURIComponent(text)}`, '_blank');
+            const text = `Namaste Radhe Shyam Jewells, I am interested in this Bangle design:\n\n*Name:* ${name}\n*Weight:* ${weight}\n*Code:* ${img}`;
+            window.open(`https://wa.me/91${BANGLE_CONFIG.whatsapp}?text=${encodeURIComponent(text)}`, '_blank');
         }
     </script>
 </body>
