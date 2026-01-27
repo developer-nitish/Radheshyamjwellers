@@ -3,35 +3,160 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us | Radhe Shyam Jewells</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>Contact Us - Radheshyam Jewellers</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <style>
+        :root {
+            --gold-solid: #B8860B;
+            --gold-gradient: linear-gradient(145deg, #D4AF37, #B8860B);
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #fdfdfd;
+            margin: 0;
+            color: #333;
+        }
+        .contact-header {
+            font-family: 'Cinzel', serif;
+            text-align: center;
+            font-size: 2.8rem;
+            margin: 40px 0;
+            color: var(--gold-solid);
+        }
+        .contact-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 50px;
+            padding: 0 5%;
+            max-width: 1200px;
+            margin: 0 auto 80px;
+            flex-wrap: wrap;
+        }
+        .contact-info, .contact-form {
+            flex: 1;
+            min-width: 320px;
+        }
+        .contact-info {
+            padding-top: 20px;
+        }
+        .info-block {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .info-block .icon {
+            font-size: 1.8rem;
+            color: var(--gold-solid);
+            width: 40px;
+            text-align: center;
+        }
+        .info-block h3 {
+            font-family: 'Cinzel', serif;
+            margin: 0 0 5px 0;
+            color: #111;
+        }
+        .info-block p, .info-block a {
+            margin: 0;
+            color: #555;
+            text-decoration: none;
+            font-size: 1.05rem;
+        }
+        .info-block a:hover {
+            color: var(--gold-solid);
+        }
+        .contact-form {
+            background: #fff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+        }
+        .contact-form h2 {
+            font-family: 'Cinzel', serif;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            box-sizing: border-box;
+        }
+        .btn-submit {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            background: var(--gold-gradient);
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .btn-submit:hover {
+            background: var(--gold-solid);
+        }
+        #form-status {
+            text-align: center;
+            margin-top: 20px;
+            font-weight: 600;
+        }
+    </style>
 </head>
-<body class="contact-page">
+<body>
 
-    <div id="navbar-placeholder"></div>
+    <div id="rsj-navbar-placeholder"></div>
 
-    <section class="contact-container">
+    <h1 class="contact-header">Get In Touch</h1>
+
+    <div class="contact-wrapper">
         <div class="contact-info">
-            <span class="gold-text">Get In Touch</span>
-            <h2>Contact Our Royal Concierge</h2>
-            <p>Radhe Shyam Jewells is committed to providing a luxury experience. Whether you need pricing or have a specific query, we are here to help.</p>
-            
-            <div class="info-item">
-                <p><strong>Address:</strong> 123 Jewelry Lane, Gold Bazaar, India</p>
-                <p><strong>Call:</strong> +91 98765 43210</p>
+            <div class="info-block">
+                <i class="fas fa-map-marker-alt icon"></i>
+                <div>
+                    <h3>Our Showroom</h3>
+                    <p>123 Jewel Lane, Gold City, 12345</p>
+                </div>
+            </div>
+            <div class="info-block">
+                <i class="fas fa-phone-alt icon"></i>
+                <div>
+                    <h3>Phone</h3>
+                    <p><a href="tel:+916207141506">+91 6207 141 506</a></p>
+                </div>
+            </div>
+            <div class="info-block">
+                <i class="fas fa-envelope icon"></i>
+                <div>
+                    <h3>Email</h3>
+                    <p><a href="mailto:info@radheshyam.com">info@radheshyam.com</a></p>
+                </div>
             </div>
         </div>
 
-        <div class="contact-form-box">
+        <div class="contact-form">
+            <h2>Send Us a Message</h2>
             <form id="contact-form">
-                <div class="input-group">
-                    <input type="text" name="user_name" id="user_name" placeholder="Your Full Name" required>
+                <div class="form-group">
+                    <input type="text" id="user_name" placeholder="Your Name" required>
                 </div>
-                <div class="input-group">
-                    <input type="email" name="user_email" id="user_email" placeholder="Your Email Address" required>
+                <div class="form-group">
+                    <input type="email" id="user_email" placeholder="Your Email" required>
                 </div>
-                <div class="input-group">
+                 <div class="form-group">
                     <select name="reason" id="reason" required>
                         <option value="" disabled selected>Select Reason for Contact</option>
                         <option value="Product Price Information">Product Price Information</option>
@@ -41,15 +166,58 @@
                         <option value="General Problem/Feedback">General Problem / Technical Issue</option>
                     </select>
                 </div>
-                <div class="input-group">
-                    <textarea name="message" id="message" rows="5" placeholder="Write your message here..." required></textarea>
+                <div class="form-group">
+                    <textarea id="message" placeholder="Your Message" required></textarea>
                 </div>
-                <button type="submit" class="btn-gold" id="submit-btn">Send Enquiry</button>
+                <button type="submit" class="btn-submit">Send Message</button>
             </form>
             <p id="form-status"></p>
         </div>
-    </section>
+    </div>
 
-    <script src="js/script.js"></script>
+    <div id="rsj-footer-container"></div>
+
+    <script>
+        async function loadRSJComponent(id, path) {
+            const el = document.getElementById(id);
+            if (el) {
+                try {
+                    const res = await fetch(path);
+                    if (res.ok) el.innerHTML = await res.text();
+                } catch (e) { console.error("Loader Error:", e); }
+            }
+        }
+        loadRSJComponent('rsj-navbar-placeholder', 'components/navbar.html');
+        loadRSJComponent('rsj-footer-container', 'components/footer.html');
+
+        (function() {
+            emailjs.init("YOUR_USER_ID"); // Replace with your EmailJS user ID
+        })();
+
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const formStatus = document.getElementById('form-status');
+            formStatus.textContent = 'Sending...';
+
+            const templateParams = {
+                user_name: document.getElementById('user_name').value,
+                user_email: document.getElementById('user_email').value,
+                reason: document.getElementById('reason').value,
+                message: document.getElementById('message').value
+            };
+
+            emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams) // Replace with your Service & Template IDs
+                .then(function(response) {
+                   formStatus.textContent = 'Message sent successfully!';
+                   formStatus.style.color = 'green';
+                   document.getElementById('contact-form').reset();
+                }, function(error) {
+                   formStatus.textContent = 'Failed to send message. Please try again.';
+                   formStatus.style.color = 'red';
+                });
+        });
+    </script>
+
 </body>
 </html>

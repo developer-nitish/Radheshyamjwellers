@@ -182,14 +182,19 @@
     <header class="earring-hero">
         <img src="https://images.unsplash.com/photo-1535633302704-b02f4faad75c?q=80&w=800" alt="Featured Earring" class="hero-img">
         <span class="hero-tag">22K Pure Gold</span>
-        <h1>Exquisite Earrings</h1>
+        <h1>Gold</h1>
         <p style="color: #ccc; font-family: 'Playfair Display', serif; font-style: italic;">Crafted for every special moment</p>
     </header>
 
     <main class="collection-wrapper">
-        <h2 class="section-title">Luxury Collection</h2>
-        <div class="earring-grid" id="earringGallery">
-            </div>
+        <h2 class="section-title">Necklace</h2>
+        <div class="earring-grid" id="necklace-gallery"></div>
+
+        <h2 class="section-title">Dholna</h2>
+        <div class="earring-grid" id="dholna-gallery"></div>
+
+        <h2 class="section-title">mangalsutra</h2>
+        <div class="earring-grid" id="mangalsutra-gallery"></div>
     </main>
 
     <div id="rsj-footer-container"></div>
@@ -212,11 +217,137 @@
         loadRSJComponent('rsj-navbar-placeholder', 'components/navbar.html');
         loadRSJComponent('rsj-footer-container', 'components/footer.html');
 
-        const gallery = document.getElementById('earringGallery');
-        if (gallery) {
-            gallery.innerHTML = '<p>Our collection of exquisite earrings is coming soon. Please check back later.</p>';
-            gallery.style.textAlign = 'center';
-            gallery.style.fontSize = '1.2rem';
+        // --- Gallery Configuration ---
+        const GOLD_CONFIG = {
+            whatsapp: "6207141506",
+            assetPath: "assets/gold/",
+        };
+
+        const categories = {
+            "Necklace": [
+                "Necklace001.jpeg",
+                "Necklace002.jpeg",
+                "Necklace003.jpeg",
+                "Necklace004.jpeg",
+                "Necklace005.jpeg",
+                "Necklace006.jpeg",
+                "Necklace007.jpeg",
+                "Necklace008.jpeg",
+                "Necklace009.jpeg",
+                "Necklace010.jpeg",
+                "Necklace011.jpeg",
+                "Necklace012.jpeg",
+                "Necklace013.jpeg",
+                "Necklace014.jpeg",
+                "Necklace015.jpeg",
+                "Necklace016.jpeg",
+                "Necklace017.jpeg",
+                "Necklace018.jpeg",
+                "Necklace019.jpeg",
+                "Necklace020.jpeg",
+                "Necklace021.jpeg",
+                "Necklace022.jpeg",
+                "Necklace023.jpeg",
+                "Necklace024.jpeg",
+                "Necklace025.jpeg",
+                "Necklace026.jpeg",
+                "Necklace027.jpeg",
+                "Necklace028.jpeg",
+                "Necklace029.jpeg",
+                "Necklace030.jpeg",
+                "Necklace031.jpeg",
+                "Necklace032.jpeg",
+                "Necklace033.jpeg"
+            ],
+            "Dholna": [
+                    "Dhola001.jpeg",
+                "Dhola002.jpeg",
+                "Dhola003.jpeg",
+                "Dhola004.jpeg",
+                "Dhola005.jpeg",
+                "Dhola006.jpeg",
+                "Dhola007.jpeg",
+                "Dhola008.jpeg",
+                "Dhola009.jpeg",],
+            "mangalsutra": [
+                 "mangalsutra 11.jpeg",
+                "mangalsutra 12.jpeg",
+                "mangalsutra 13.jpeg",
+                "mangalsutra 14.jpeg",
+                "mangalsutra 15.jpeg",
+                "mangalsutra 16.jpeg",
+                "mangalsutra 17.jpeg",
+                "mangalsutra 18.jpeg",
+                "mangalsutra 19.jpeg",
+                "mangalsutra 110.jpeg",
+                "mangalsutra 111.jpeg",
+                "mangalsutra 112.jpeg",
+                "mangalsutra 113.jpeg",
+                "mangalsutra 114.jpeg",
+                "mangalsutra 115.jpeg",
+                "mangalsutra 116.jpeg",
+                "mangalsutra 117.jpeg",
+                "mangalsutra 118.jpeg",
+                "mangalsutra 119.jpeg",
+                "mangalsutra 120.jpeg",
+                "mangalsutra 121.jpeg",
+                "mangalsutra 122.jpeg",
+                "mangalsutra 123.jpeg",
+                "mangalsutra 124.jpeg",
+                "mangalsutra 125.jpeg",
+                "mangalsutra 126.jpeg",
+                "mangalsutra 127.jpeg",
+                "mangalsutra 128.jpeg",
+                "mangalsutra 129.jpeg",
+                "mangalsutra 130.jpeg",
+                "mangalsutra 131.jpeg",
+                "mangalsutra 132.jpeg",
+                "mangalsutra 133.jpeg",
+                "mangalsutra 134.jpeg"
+            ]
+        };
+
+        function formatImageName(name) {
+            let formattedName = name.split('.').slice(0, -1).join('.');
+            formattedName = formattedName.replace(/[-_]/g, ' ');
+            return formattedName;
+        }
+
+        function createGallery(category, imageList) {
+            const gallery = document.getElementById(`${category.toLowerCase()}-gallery`);
+            if (!gallery) return;
+
+            imageList.forEach((imageName, i) => {
+                const card = document.createElement('div');
+                card.className = 'earring-card';
+                
+                const realImgPath = `${GOLD_CONFIG.assetPath}${category}/${imageName}`;
+                const placeholderImg = "https://images.unsplash.com/photo-1635767798638-3e25273a8236?q=80&w=600";
+                const itemName = formatImageName(imageName);
+
+                card.innerHTML = `
+                    <div class="img-box" onclick="openModal('${realImgPath}')">
+                        <img src="${realImgPath}" alt="${itemName}" onerror="this.src='${placeholderImg}'">
+                    </div>
+                    <div class="card-content">
+                        <h3>${itemName}</h3>
+                        <p>High-quality gold jewelry</p>
+                        <span class="weight-tag">Weight: Available on request</span>
+                        <a href="https://wa.me/91${GOLD_CONFIG.whatsapp}?text=I am interested in Gold Design: ${itemName}" class="btn-wa" target="_blank">
+                            <i class="fab fa-whatsapp"></i> <span>Enquire Now</span>
+                        </a>
+                    </div>`;
+                gallery.appendChild(card);
+            });
+        }
+
+        for (const category in categories) {
+            createGallery(category, categories[category]);
+        }
+
+        function openModal(src) {
+            document.getElementById('modalImg').src = src;
+            document.getElementById('viewerModal').style.display = 'flex';
         }
     </script>
 </body>

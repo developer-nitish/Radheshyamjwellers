@@ -104,73 +104,24 @@
     </div>
 
     <script>
-        // --- Component Loader ---
-        async function loadRSJComponent(elementId, filePath) {
-            const placeholder = document.getElementById(elementId);
-            if (placeholder) {
+        // --- Universal Component Loader ---
+        async function loadRSJComponent(id, path) {
+            const el = document.getElementById(id);
+            if (el) {
                 try {
-                    const response = await fetch(filePath);
-                    if (response.ok) placeholder.innerHTML = await response.text();
-                } catch (err) { console.error("Component load failed:", err); }
+                    const res = await fetch(path);
+                    if (res.ok) el.innerHTML = await res.text();
+                } catch (e) { console.error("Loader Error:", e); }
             }
         }
-
         loadRSJComponent('rsj-navbar-placeholder', 'components/navbar.html');
         loadRSJComponent('rsj-footer-container', 'components/footer.html');
 
-        // --- Bangle Gallery Configuration ---
-        const BANGLE_CONFIG = {
-            whatsapp: "6207141506",
-            assetPath: "assets/bangles/", // Alag folder for bangles suggested
-            totalItems: 20 // Aap ise 30-40 kar sakte hain
-        };
-
-        const bangleInfo = [
-            { title: "Antique Nakshi Bangle", weight: "32.450g" },
-            { title: "Royal Polki Kada", weight: "45.120g" },
-            { title: "Filigree Gold Gokhru", weight: "28.900g" },
-            { title: "Temple Work Vanki", weight: "38.220g" },
-            { title: "Classic Solid Gold Churi", weight: "18.600g" }
-        ];
-
         const gallery = document.getElementById('bangleGallery');
-
-        for(let i = 1; i <= BANGLE_CONFIG.totalItems; i++) {
-            const info = bangleInfo[(i - 1) % bangleInfo.length];
-            const card = document.createElement('div');
-            card.className = 'bangle-card';
-            
-            // Note: Ensure images are named bangle1.jpeg, bangle2.jpeg etc.
-            const imgFileName = `bangle${i}.jpeg`; 
-
-            card.innerHTML = `
-                <div class="img-box" onclick="openModal('${BANGLE_CONFIG.assetPath}${imgFileName}')">
-                    <span class="pure-badge">PURE 22K</span>
-                    <img src="${BANGLE_CONFIG.assetPath}${imgFileName}" alt="Bangle" onerror="this.src='https://via.placeholder.com/400x400?text=Bangle+Design'">
-                </div>
-                <div class="card-content">
-                    <h3>${info.title} #${i}</h3>
-                    <span class="weight-text">Approx Weight: ${info.weight}</span>
-                    <div class="btn-group">
-                        <button class="lux-btn btn-view" onclick="openModal('${BANGLE_CONFIG.assetPath}${imgFileName}')">
-                            <i class="fas fa-expand"></i> <span>View</span>
-                        </button>
-                        <button class="lux-btn btn-wa" onclick="sendWA('${info.title} #${i}', '${info.weight}', '${imgFileName}')">
-                            <i class="fab fa-whatsapp"></i> <span>Enquire</span>
-                        </button>
-                    </div>
-                </div>`;
-            gallery.appendChild(card);
-        }
-
-        function openModal(src) {
-            document.getElementById('modalImg').src = src;
-            document.getElementById('viewerModal').style.display = 'flex';
-        }
-
-        function sendWA(name, weight, img) {
-            const text = `Namaste Radhe Shyam Jewells, I am interested in this Bangle design:\n\n*Name:* ${name}\n*Weight:* ${weight}\n*Code:* ${img}`;
-            window.open(`https://wa.me/91${BANGLE_CONFIG.whatsapp}?text=${encodeURIComponent(text)}`, '_blank');
+        if (gallery) {
+            gallery.innerHTML = '<p>Our collection of exquisite bangles is coming soon. Please check back later.</p>';
+            gallery.style.textAlign = 'center';
+            gallery.style.fontSize = '1.2rem';
         }
     </script>
 </body>

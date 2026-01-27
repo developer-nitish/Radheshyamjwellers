@@ -215,50 +215,11 @@
         loadRSJComponent('rsj-navbar-placeholder', 'components/navbar.html');
         loadRSJComponent('rsj-footer-container', 'components/footer.html');
 
-        // --- Gallery Configuration ---
-        const RING_CONFIG = {
-            whatsapp: "6207141506",
-            assetPath: "assets/rings/",
-            totalItems: 30
-        };
-
-        const ringData = [
-            { name: "Royal Solitaire Band", weight: "5.240g", desc: "Classic diamond-cut solitaire finish in hallmark 22K gold." },
-            { name: "Filigree Queen Ring", weight: "7.150g", desc: "Intricate gold thread work inspired by royal heritage." },
-            { name: "Modern Wedding Knot", weight: "4.820g", desc: "Minimalist design perfect for daily luxury wear." },
-            { name: "Emerald Studded Vanki", weight: "9.300g", desc: "Traditional Vanki style ring with premium gemstones." }
-        ];
-
         const gallery = document.getElementById('ringGallery');
-
-        // Loop to generate 30 items
-        for(let i = 1; i <= RING_CONFIG.totalItems; i++) {
-            const info = ringData[(i - 1) % ringData.length];
-            const card = document.createElement('div');
-            card.className = 'ring-card';
-            
-            // Image fallback using jewelry-related placeholders
-            const placeholderImg = `https://images.unsplash.com/photo-1605100804763-247f67b3557e?q=80&w=600`;
-            const realImgPath = `${RING_CONFIG.assetPath}ring${i}.jpeg`;
-
-            card.innerHTML = `
-                <div class="img-box" onclick="openModal('${realImgPath}')">
-                    <img src="${realImgPath}" alt="Ring" onerror="this.src='${placeholderImg}'">
-                </div>
-                <div class="card-content">
-                    <h3>${info.name} #${i}</h3>
-                    <p>${info.desc}</p>
-                    <span class="price-tag">Weight: ${info.weight}</span>
-                    <a href="https://wa.me/91${RING_CONFIG.whatsapp}?text=I am interested in Ring Design #${i}" class="btn-wa" target="_blank">
-                        <i class="fab fa-whatsapp"></i> Enquire on WhatsApp
-                    </a>
-                </div>`;
-            gallery.appendChild(card);
-        }
-
-        function openModal(src) {
-            document.getElementById('modalImg').src = src;
-            document.getElementById('viewerModal').style.display = 'flex';
+        if (gallery) {
+            gallery.innerHTML = '<p>Our collection of exquisite rings is coming soon. Please check back later.</p>';
+            gallery.style.textAlign = 'center';
+            gallery.style.fontSize = '1.2rem';
         }
     </script>
 </body>

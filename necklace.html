@@ -105,72 +105,100 @@
     </div>
 
     <script>
-        // --- Component Loader Logic ---
-        async function loadRSJComponent(elementId, filePath) {
-            const placeholder = document.getElementById(elementId);
-            if (placeholder) {
+        // --- Universal Component Loader ---
+        async function loadRSJComponent(id, path) {
+            const el = document.getElementById(id);
+            if (el) {
                 try {
-                    const response = await fetch(filePath);
-                    if (response.ok) {
-                        placeholder.innerHTML = await response.text();
-                    }
-                } catch (err) { console.error("Load failed:", err); }
+                    const res = await fetch(path);
+                    if (res.ok) el.innerHTML = await res.text();
+                } catch (e) { console.error("Loader Error:", e); }
             }
         }
-
-        // Call Components
         loadRSJComponent('rsj-navbar-placeholder', 'components/navbar.html');
         loadRSJComponent('rsj-footer-container', 'components/footer.html');
 
         // --- Gallery Configuration ---
         const CONFIG = {
             whatsapp: "6207141506",
-            assetPath: "assets/",
-            totalItems: 30
+            assetPath: "assets/gold/Necklace/",
         };
 
-        const baseInfo = [
-            { title: "Royal Temple Bloom", weight: "42.030g" },
-            { title: "Filigree Art Choker", weight: "27.890g" },
-            { title: "Golden Petal Rani-Haar", weight: "44.620g" },
-            { title: "Mandala Pendant Suite", weight: "22.220g" },
-            { title: "Antique Heart Dangler", weight: "34.750g" }
+        const imageList = [
+            "Necklace001.jpeg",
+            "Necklace002.jpeg",
+            "Necklace003.jpeg",
+            "Necklace004.jpeg",
+            "Necklace005.jpeg",
+            "Necklace006.jpeg",
+            "Necklace007.jpeg",
+            "Necklace008.jpeg",
+            "Necklace009.jpeg",
+            "Necklace010.jpeg",
+            "Necklace011.jpeg",
+            "Necklace012.jpeg",
+            "Necklace013.jpeg",
+            "Necklace014.jpeg",
+            "Necklace015.jpeg",
+            "Necklace016.jpeg",
+            "Necklace017.jpeg",
+            "Necklace018.jpeg",
+            "Necklace019.jpeg",
+            "Necklace020.jpeg",
+            "Necklace021.jpeg",
+            "Necklace022.jpeg",
+            "Necklace023.jpeg",
+            "Necklace024.jpeg",
+            "Necklace025.jpeg",
+            "Necklace026.jpeg",
+            "Necklace027.jpeg",
+            "Necklace028.jpeg",
+            "Necklace029.jpeg",
+            "Necklace030.jpeg",
+            "Necklace031.jpeg",
+            "Necklace032.jpeg",
+            "Necklace033.jpeg"
         ];
 
-        const gallery = document.getElementById('mainGallery');
-
-        for(let i = 1; i <= CONFIG.totalItems; i++) {
-            const info = baseInfo[(i - 1) % baseInfo.length];
-            const card = document.createElement('div');
-            card.className = 'necklace-card';
-            card.innerHTML = `
-                <div class="img-box" onclick="openModal('${CONFIG.assetPath}img${i}.jpeg')">
-                    <span class="pure-badge">PURE 22K</span>
-                    <img src="${CONFIG.assetPath}img${i}.jpeg" alt="Jewelry" onerror="this.src='https://via.placeholder.com/400x400?text=Jewelry+Item'">
-                </div>
-                <div class="card-content">
-                    <h3>${info.title} #${i}</h3>
-                    <span class="weight-text">Approx Weight: ${info.weight}</span>
-                    <div class="btn-group">
-                        <button class="lux-btn btn-view" onclick="openModal('${CONFIG.assetPath}img${i}.jpeg')">
-                            <i class="fas fa-expand"></i> <span>View</span>
-                        </button>
-                        <button class="lux-btn btn-wa" onclick="sendWA('${info.title} #${i}', '${info.weight}', 'img${i}.jpeg')">
-                            <i class="fab fa-whatsapp"></i> <span>Enquire</span>
-                        </button>
-                    </div>
-                </div>`;
-            gallery.appendChild(card);
+        function formatImageName(name) {
+            let formattedName = name.split('.').slice(0, -1).join('.');
+            formattedName = formattedName.replace(/[-_]/g, ' ');
+            return formattedName;
         }
+
+        function createGallery() {
+            const gallery = document.getElementById('mainGallery');
+            if (!gallery) return;
+
+            imageList.forEach((imageName, i) => {
+                const card = document.createElement('div');
+                card.className = 'necklace-card';
+                
+                const realImgPath = `${CONFIG.assetPath}${imageName}`;
+                const placeholderImg = "https://images.unsplash.com/photo-1635767798638-3e25273a8236?q=80&w=600";
+                const itemName = formatImageName(imageName);
+
+                card.innerHTML = `
+                    <div class="img-box" onclick="openModal('${realImgPath}')">
+                        <img src="${realImgPath}" alt="${itemName}" onerror="this.src='${placeholderImg}'">
+                    </div>
+                    <div class="card-content">
+                        <h3>${itemName}</h3>
+                        <p>High-quality gold jewelry</p>
+                        <span class="weight-tag">Weight: Available on request</span>
+                        <a href="https://wa.me/91${CONFIG.whatsapp}?text=I am interested in Gold Design: ${itemName}" class="btn-wa" target="_blank">
+                            <i class="fab fa-whatsapp"></i> <span>Enquire Now</span>
+                        </a>
+                    </div>`;
+                gallery.appendChild(card);
+            });
+        }
+
+        createGallery();
 
         function openModal(src) {
             document.getElementById('modalImg').src = src;
             document.getElementById('viewerModal').style.display = 'flex';
-        }
-
-        function sendWA(name, weight, img) {
-            const text = `Namaste Radhe Shyam Jewells, I am interested in:\n\n*Name:* ${name}\n*Weight:* ${weight}\n*Code:* ${img}`;
-            window.open(`https://wa.me/91${CONFIG.whatsapp}?text=${encodeURIComponent(text)}`, '_blank');
         }
     </script>
 </body>
