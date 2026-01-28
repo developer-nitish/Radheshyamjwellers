@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Exquisite Earrings | Radhe Shyam Jewells</title>
+    <title>Brilliant Diamonds | Radhe Shyam Jewells</title>
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Playfair+Display:ital,wght@0,400;0,700;1,500&family=Poppins:wght@200;300;400;600&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            --gold-gradient: linear-gradient(135deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
-            --gold-solid: #D4AF37;
+            --diamond-gradient: linear-gradient(135deg, #b9c2ca, #ffffff, #d3dbe3, #f0f5fa, #aabdc9);
+            --diamond-solid: #b9c2ca;
             --deep-black: #050505;
             --pure-white: #ffffff;
             --soft-gray: #f4f4f4;
@@ -21,7 +21,6 @@
         
         body { background-color: var(--soft-gray); color: #333; font-family: 'Poppins', sans-serif; overflow-x: hidden; }
 
-        /* --- Luxury Hero Header --- */
         .earring-hero {
             height: 75vh;
             background: radial-gradient(circle at 50% 50%, #2c2c2c 0%, #000 100%);
@@ -40,7 +39,7 @@
         .hero-img {
             max-width: 450px;
             width: 85%;
-            filter: drop-shadow(0 0 30px rgba(212, 175, 55, 0.5));
+            filter: drop-shadow(0 0 30px rgba(185, 194, 202, 0.5));
             margin-bottom: 20px;
             animation: float 4s ease-in-out infinite;
         }
@@ -51,7 +50,7 @@
         }
 
         .hero-tag {
-            background: var(--gold-solid);
+            background: var(--diamond-solid);
             color: #000;
             padding: 5px 15px;
             font-weight: 800;
@@ -65,7 +64,7 @@
         .earring-hero h1 {
             font-family: 'Cinzel', serif;
             font-size: clamp(2.2rem, 8vw, 4.5rem);
-            background: var(--gold-gradient);
+            background: var(--diamond-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             font-weight: 900;
@@ -73,7 +72,6 @@
             text-transform: uppercase;
         }
 
-        /* --- Collection Grid --- */
         .collection-wrapper { max-width: 1400px; margin: 0 auto; padding: 20px; }
         
         .section-title {
@@ -81,7 +79,7 @@
             font-size: 2.2rem;
             margin-bottom: 40px;
             text-align: left;
-            border-bottom: 3px solid var(--gold-solid);
+            border-bottom: 3px solid var(--diamond-solid);
             display: inline-block;
             padding-bottom: 10px;
         }
@@ -100,13 +98,13 @@
             transition: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
             display: flex;
             flex-direction: column;
-            border: 1px solid rgba(212, 175, 55, 0.1);
+            border: 1px solid rgba(185, 194, 202, 0.1);
         }
 
         .earring-card:hover {
             transform: translateY(-12px);
-            border-color: var(--gold-solid);
-            box-shadow: 0 20px 50px rgba(212, 175, 55, 0.15);
+            border-color: var(--diamond-solid);
+            box-shadow: 0 20px 50px rgba(185, 194, 202, 0.15);
         }
 
         .img-box {
@@ -132,9 +130,8 @@
         .card-content { padding: 25px; text-align: left; }
         .card-content h3 { font-family: 'Cinzel', serif; font-size: 1.1rem; margin-bottom: 8px; color: #111; }
         .card-content p { color: #666; font-size: 0.9rem; margin-bottom: 15px; line-height: 1.5; }
-        .weight-tag { color: var(--gold-solid); font-weight: 700; font-size: 1rem; display: block; margin-bottom: 20px; }
+        .weight-tag { color: var(--diamond-solid); font-weight: 700; font-size: 1rem; display: block; margin-bottom: 20px; }
 
-        /* --- WhatsApp Enquire Button --- */
         .btn-wa {
             display: flex;
             align-items: center;
@@ -150,7 +147,6 @@
         }
         .btn-wa:hover { background: #128C7E; transform: scale(1.02); }
 
-        /* --- Full Screen Modal --- */
         #viewerModal {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -160,9 +156,8 @@
             align-items: center;
             z-index: 10000;
         }
-        #viewerModal img { max-width: 90%; max-height: 85%; border: 1px solid var(--gold-solid); box-shadow: 0 0 40px rgba(212, 175, 55, 0.3); }
+        #viewerModal img { max-width: 90%; max-height: 85%; border: 1px solid var(--diamond-solid); box-shadow: 0 0 40px rgba(185, 194, 202, 0.3); }
 
-        /* --- Mobile Responsiveness --- */
         @media (max-width: 768px) {
             .earring-hero { height: 50vh; clip-path: none; margin-bottom: 30px; }
             .hero-img { max-width: 250px; }
@@ -180,15 +175,17 @@
     <div id="rsj-navbar-placeholder"></div>
 
     <header class="earring-hero">
-        <img src="https://images.unsplash.com/photo-1535633302704-b02f4faad75c?q=80&w=800" alt="Featured Earring" class="hero-img">
-        <span class="hero-tag">22K Pure Gold</span>
-        <h1>Exquisite Earrings</h1>
-        <p style="color: #ccc; font-family: 'Playfair Display', serif; font-style: italic;">Crafted for every special moment</p>
+        <img src="https://images.unsplash.com/photo-1535633302704-b02f4faad75c?q=80&w=800" alt="Featured Diamond" class="hero-img">
+        <span class="hero-tag">Certified Diamonds</span>
+        <h1>Brilliant Diamonds</h1>
+        <p style="color: #ccc; font-family: 'Playfair Display', serif; font-style: italic;">Sourced and crafted to your desires.</p>
     </header>
 
     <main class="collection-wrapper">
-        <h2 class="section-title">Luxury Collection</h2>
-        <div class="earring-grid" id="earringGallery">
+        <h2 class="section-title">Bespoke Diamond Service</h2>
+        <p style="margin-bottom: 40px;">We specialize in sourcing and creating exquisite diamond jewelry tailored to your unique requirements. Whether you're looking for a specific cut, clarity, or a custom design, our experts are here to guide you through the process. Contact us to begin your journey towards owning a truly personal piece of diamond artistry.</p>
+        <h2 class="section-title">Diamond Collection</h2>
+        <div class="earring-grid" id="diamondGallery">
             </div>
     </main>
 
@@ -199,7 +196,6 @@
     </div>
 
     <script>
-        // --- Universal Component Loader ---
         async function loadRSJComponent(id, path) {
             const el = document.getElementById(id);
             if (el) {
@@ -212,9 +208,9 @@
         loadRSJComponent('rsj-navbar-placeholder', 'components/navbar.html');
         loadRSJComponent('rsj-footer-container', 'components/footer.html');
 
-        const gallery = document.getElementById('earringGallery');
+        const gallery = document.getElementById('diamondGallery');
         if (gallery) {
-            gallery.innerHTML = '<p>Our collection of exquisite earrings is coming soon. Please check back later.</p>';
+            gallery.innerHTML = '<p>Our collection of exquisite diamonds is coming soon. Please check back later.</p>';
             gallery.style.textAlign = 'center';
             gallery.style.fontSize = '1.2rem';
         }

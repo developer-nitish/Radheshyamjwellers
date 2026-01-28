@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Radheshyam Jewellers</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold-solid: #B8860B;
+            --gold-gradient: linear-gradient(145deg, #D4AF37, #B8860B);
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #fdfdfd;
+            margin: 0;
+            color: #333;
+        }
+        .about-header {
+            font-family: 'Cinzel', serif;
+            text-align: center;
+            font-size: 2.8rem;
+            margin: 40px 0;
+            color: var(--gold-solid);
+        }
+        .about-container {
+            max-width: 900px;
+            margin: 0 auto 80px;
+            padding: 0 20px;
+            text-align: justify;
+            line-height: 1.8;
+        }
+        .about-container h2 {
+            font-family: 'Cinzel', serif;
+            color: #111;
+            margin-bottom: 20px;
+            text-align: center;
+            border-bottom: 2px solid var(--gold-solid);
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+        .about-container .center-heading {
+             text-align: center;
+        }
+        .about-container p {
+            font-size: 1.05rem;
+            color: #555;
+            margin-bottom: 25px;
+        }
+        .highlight {
+            color: var(--gold-solid);
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="rsj-navbar-placeholder"></div>
+
+    <h1 class="about-header">Our Legacy of Trust</h1>
+
+    <div class="about-container">
+        <p>
+            Welcome to <span class="highlight">Radheshyam Jewellers</span>, a name synonymous with trust, purity, and exquisite craftsmanship for over three generations. Our journey began with a simple vision: to create timeless pieces of jewellery that are not just ornaments, but heirlooms to be passed down through generations.
+        </p>
+
+        <div class="center-heading">
+            <h2>Our Craftsmanship</h2>
+        </div>
+        <p>
+            Each piece at Radheshyam Jewellers is a masterpiece, meticulously crafted by skilled artisans who pour their heart and soul into their work. We blend traditional techniques with contemporary designs to bring you jewellery that is both classic and modern. Our commitment to quality is unwavering, ensuring that every piece that leaves our store is a testament to our legacy.
+        </p>
+        
+        <div class="center-heading">
+            <h2>Our Promise</h2>
+        </div>
+        <p>
+            We believe in building relationships based on trust and transparency. Our customers are our family, and we are dedicated to providing them with the highest quality jewellery and exceptional service. We are committed to ethical sourcing and responsible practices, ensuring that our jewellery is not just beautiful, but also made with integrity.
+        </p>
+    </div>
+
+    <div id="rsj-footer-container"></div>
+
+    <script>
+        async function loadRSJComponent(id, path) {
+            const el = document.getElementById(id);
+            if (el) {
+                try {
+                    const res = await fetch(path);
+                    if (res.ok) el.innerHTML = await res.text();
+                } catch (e) { console.error("Loader Error:", e); }
+            }
+        }
+        loadRSJComponent('rsj-navbar-placeholder', 'components/navbar.html');
+        loadRSJComponent('rsj-footer-container', 'components/footer.html');
+    </script>
+
+</body>
+</html>
